@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!-- Form view of Student -->
+    <!-- To create a view you need to create a record using record tag as shown below -->
+    <!-- record tag has two attributes id and model -->
+    <!-- ID must be unique throughout the module. Duplication will lead to overriding -->
+    <!-- The XML ID is also called an External ID as well -->
+    <!-- The naming convention is view_<model_name>_<view_type> so in our case it became view_student_form -->
+    <!-- The model will be always ir.ui.view if you're creating a view -->
+    <!-- Using record tag you are actually creating a record in the ir.ui.view model or ir_ui_view table -->
+    <!-- All views created you can find in this table -->
+    <record id="view_student_form" model="ir.ui.view">
+        <!-- There will be at least 3 fields that we will have in the record of view -->
+        <!-- first one is the name field which is the functional name of the view -->
+        <field name="name">view.student.form</field>
+        <!-- Second one is the model field which defines for which model we are creating the view -->
+        <field name="model">school.student</field>
+        <!-- Third one is arch which is the archutecture of your view in xml that's why we have another attribute type=xml -->
+        <field name="arch" type="xml">
+            <!-- the first tage in the arch defines which kind of view you're trying to create. -->
+            <!-- Here we are creating form view so it is <form> tag -->
+            <form>
+                <header>
+                    <h1>This is a Header....</h1>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/> <!-- Read Ribbon -->
+<!--                    <widget name="web_ribbon" title="Active" bg_color="text-bg-success" invisible="not active"/>  &lt;!&ndash; Green Ribbon &ndash;&gt;-->
+<!--                    <widget name="web_ribbon" title="Active" bg_color="text-bg-warning" invisible="not active"/>--> <!--Yellow Ribbon -->
+<!--                    <widget name="web_ribbon" title="Active" bg_color="text-bg-info" invisible="not active"/>--> <!-- Blue Ribbon -->
+<!--                    <widget name="web_ribbon" title="Active" bg_color="text-bg-primary" invisible="not active"/> --> <!-- Primary Color Ribbon - By default Purple -->
+<!--                    <widget name="web_ribbon" title="Active" bg_color="text-bg-secondary" invisible="not active"/>--> <!-- Secondary Color Ribbon - By default Gray -->
+                    <!-- sheet tag is used to add a better look and feel of the form like a paper sheet -->
+                    <!-- In the view you can list out all your model's fields as shown below -->
+                    <field name="photo" widget='image' class="oe_avatar"/>
+                    <div colspan="4">
+                        <label for="name"/>
+                        <!-- To bring the label of the field you can use label tag -->
+                        <!-- for attribute takes the name of the field for which you want to get the label -->
+                        <h1 colspan="4">
+                            <!-- You can use HTML Tags as well -->
+                            <field name="name" help="This will be the full name of the student" placeholder="Name of the student e.g. Ajay Chauhan" colspan="4"/>
+                        </h1>
+                            <!-- help attribute is used ot add a tooltip on the field -->
+                        <group colspan="4">
+                            <group>
+                                <field name="active" nolabel="1" invisible="1"/>
+                                <!-- nolabel attribute removes the label of the field-->
+                                <field name="roll_no"/>
+<!--                                <field name="roll_no" readonly="1"/>-->
+                                <!-- readonly attribute is used to make the field uneditable -->
+                                <field name="fees"/>
+<!--                                <field name="standard_id"/>-->
+<!--                                <field name="standard_id" widget="selection"/>-->
+                                <!-- selection widget makes the M2O field just like a selection -->
+                                <!-- You can neither search nor create / update any record from M2O field if selection widget is applied-->
+                                <field name="standard_id" options="{'no_create':1, 'no_open':1}"/>
+                                <!-- As mentioned belwo options is a dictionary which can be used for adding additional features to a field -->
+                                <!-- Here with M2O field if you want to restrict creation of record you can use no_create attribute and value should be 1 to restrict creation -->
+                                <!-- Here with M2O field if you want to restrict the update or opening of the record you can use no_open attribute and value should be 1 to restrict updation -->
+                                <field name="email" widget="email"/>
+                                <!-- Email widget is used to have a feature to directly send an email to the email address -->
+                                <field name="website" widget="url"/>
+                                <!-- The field acts as an anchor tag and can redirect to a url given in the field -->
+                                <field name="phone" widget="phone"/>
+                                <!-- The phone widget is used for the phone numbers and you can use it to call if certain facility is available -->
+                                <field name="currency_id"/>
+                                <field name="annual_fee"/>
+                                <field name="file_name" invisible="1"/>
+                                <!-- the above field stores the name of the uploaded file -->
+                                <field name="doc" filename="file_name"/>
+                                <!-- The filename attribute is used to link the name of the uploaded file to the char field where the name will be stored and preserved -->
+                            </group>
+                            <group>
+                                <field name="birthdate" required="1"/>
+                                <!-- required attribute is used to make the field mandatory -->
+                                <!-- Unlike python it does not add a NOT NULL constraint in the database table if added from XML -->
+                                <field name="login_time"/>
+            <!--                    <field name="login_time" invisible="1"/>-->
+                                <!-- invisible attribute is used to make the field not visible on the view -->
+                                <field name="gender" widget="radio"/>
+                                <!-- widget radio gives radio buttons for all the options of selection instead of a dropdown -->
+                                <field name="password" password="*"/>
+                                <field name="in_time" widget="float_time"/>
+                                <field name="out_time" widget="float_time"/>
+                                <field name="priority" widget="priority"/>
+                                <field name="reference"/>
+                                <!-- float_time widget displays the value like time but stores as float -->
+                             </group>
+                        </group>
+                        <!-- Separator is used to add a separator line with a string for a bigger field -->
+    <!--                    <separator string="Notes"/>-->
+    <!--                    <field name="notes"/>-->
+    <!--                    <separator string="Template"/>-->
+    <!--                    <field name="template"/>-->
+                        <!-- using notebook tag you can have the fields in tags -->
+                        <!-- Instead of separator you can use notebook as well -->
+                        <notebook>
+                            <!-- notebook tag contains pages-->
+                            <!-- Each page will become one tab -->
+                            <!-- You should always give name and string -->
+                            <!-- String will be the caption of the tab and name will be used to reference it technically in future when we inherit the view-->
+                            <page name="pg_marks" string="Marks">
+                                <field name="marks_ids"/>
+                            </page>
+                            <page name="pg_activity" string="Activities">
+<!--                                <field name="activity_ids"/>-->
+<!--                                <field name="activity_ids" widget="many2many_tags" options="{'color_field': 'color_index'}"/>-->
+                                <!-- many2many_tags is a widget which displayed the records as tags and you can select mutliple tags -->
+                                <!-- options is a dictionary which can be used on fileds for providing addititional features -->
+                                <!-- Here color_field attribute gets the color from the record of the activity and displays the tag in that color -->
+                                <!-- The value of color_field attribute is the name of the color field -->
+                                <field name="activity_ids" widget="many2many_checkboxes"/>
+                            </page>
+<!--                            <page name="pg_img" string="Image">-->
+<!--                                <field name="photo" widget="image"/>-->
+<!--                                &lt;!&ndash; To make it an image field we add the widget image &ndash;&gt;-->
+<!--                            </page>-->
+                            <page name="pg_notes" string="Notes">
+                                <field name="notes"/>
+                            </page>
+                            <page name="pg_template" string="Template">
+                                <field name="template"/>
+                            </page>
+                        </notebook>
+                    </div>
+                </sheet>
+                <footer>
+                    <h2>This is a Footer....</h2>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Student -->
+    <!-- For creating tree view we will follow the same thing as form except the tag would be tree rather than form -->
+    <!-- Tree views are also called list views as well -->
+    <!-- In views it is not mandatory to display all fields you can opt to display specific fields  -->
+    <!-- Specifically in tree view we will always keep minimum fields as we have limited space. -->
+    <record id="view_student_tree" model="ir.ui.view">
+        <field name="name">view.student.tree</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+                <!-- The widget boolean_toggle shows a button to turn on and off -->
+                <!-- This widget is specifically for boolean fields -->
+                <field name="roll_no" />
+                <field name="standard_id"/>
+                <field name="fees" string="Tution Fees" groups="school.grp_school_admin"/>
+                <!-- string attribute is used to change the label of the field -->
+                <!-- groups attribute is used to show the field only to the mentioned groups -->
+                <!-- The value to groups must be always <module_name>.<xml_id_of_group> for e.g. school.grp_school_admin -->
+                <field name="birthdate" />
+                <field name="annual_fee"/>
+                <field name="login_time" />
+                <field name="gender"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Search view of Student -->
+    <!-- Search view is not specifically a view that gets displayed on the screen for a record -->
+    <!-- rather it is used to search records on specific views such as list(tree), Kanban, Graph, Pivot etc. -->
+    <!-- For search view we will use <search> tag -->
+    <record id="view_student_search" model="ir.ui.view">
+        <field name="name">view.student.search</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="roll_no"/>
+                <field name="gender"/>
+                <field name="birthdate"/>
+                <field name="standard_id"/>
+            </search>
+        </field>
+    </record>
+
+
+    <!-- Action of Student -->
+    <!-- To create an action we will again use the record tag only -->
+    <!-- Here the model will be different which will be ir.actions.act_window -->
+    <!--The fields are as following -->
+    <!-- first field is name which will be string / caption of Action -->
+    <!-- This can also be used for menu if action is connected to menu and no caption is given on menu -->
+    <!-- Second field is res_model which defines for which model you're creating this action -->
+    <!-- Third field is view_mode which defines which will be the first view loaded and it can switch to which other views -->
+    <!-- The first view mentioned in the sequence will be loaded as soon as the action is triggered -->
+    <!-- so in below action tree view will be loaded and one can switch to form view as well -->
+    <record id="action_school_student" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menus of School -->
+
+    <!-- We need to have 3 layers of menu if we are creating a completely new application -->
+    <!-- The first menu will be considered the Application menu -->
+    <!-- The second menu will be a parent menu under the Application -->
+    <!-- The third menu will be a submenu under the parent menu bound to the action -->
+
+    <!-- menuitem tag is used to create a menu -->
+    <!-- id attribute is the identification for the menu and again has to be unique throughout the module -->
+    <!-- name is the Caption of the menu -->
+
+    <!-- Application Menu -->
+    <menuitem id="menu_school_app" name="School Management"/>
+
+    <!-- parent will be an xml id of another menu where you want to keep this menu -->
+    <!-- So here we are keeping the Student Info menu under School Management Application menu. -->
+
+    <!-- Main Menu under Application -->
+    <menuitem id="menu_student_info" name="Students Info" parent="menu_school_app"/>
+
+    <!-- here to bind an action to the menu we use action attribute which is again an xml id of the action -->
+    <!-- If we are using action we can avoid name as it will take the name of the action as caption -->
+    <!-- Submenu for Students bound to action -->
+    <menuitem id="menu_students" action="action_school_student" parent="menu_student_info"/>
+
+
+    <!-- Menu of Configuration -->
+    <!-- There will be always a configuration menu added in an application which will be always the last menu -->
+    <!-- we can add all the master models under Configuration -->
+    <!-- To keep it last we will always keep a higher sequence which we can see here 100 -->
+    <menuitem id="menu_config" name="Configuration" parent="menu_school_app" sequence="100"/>
+
+
+
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Form view of standard -->
+    <record id="view_standard_form" model="ir.ui.view">
+        <field name="name">view.standard.form</field>
+        <field name="model">school.standard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Standard -->
+    <record id="view_standard_list" model="ir.ui.view">
+        <field name="name">view.standard.list</field>
+        <field name="model">school.standard</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="code"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Search view of Standard -->
+    <record id="view_standard_search" model="ir.ui.view">
+        <field name="name">view.standard.search</field>
+        <field name="model">school.standard</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Standard -->
+    <record id="action_standard" model="ir.actions.act_window">
+        <field name="name">Standards</field>
+        <field name="res_model">school.standard</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu of Standards -->
+    <menuitem id="menu_standard" action="action_standard" parent="menu_config"/>
+
+</odoo>

@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_admin,access.student.admin,model_school_student,grp_school_admin,1,1,1,1
+access_student_teacher,access.student.teacher,model_school_student,grp_school_teacher,1,1,0,0
+access_student_student,access.student.student,model_school_student,grp_school_student,1,0,0,0
+access_standard_admin,access.standard.admin,model_school_standard,grp_school_admin,1,1,1,1
+access_standard_teacher,access.standard.teacher,model_school_standard,grp_school_teacher,1,0,0,0
+access_standard_student,access.standard.student,model_school_standard,grp_school_student,1,0,0,0
+access_subject_admin,access.subject.admin,model_school_subject,grp_school_admin,1,1,1,1
+access_subject_teacher,access.subject.teacher,model_school_subject,grp_school_teacher,1,1,0,0
+access_subject_student,access.subject.student,model_school_subject,grp_school_student,1,0,0,0
+access_marks_admin,access.marks.admin,model_student_marks,grp_school_admin,1,1,1,1
+access_marks_teacher,access.marks.teacher,model_student_marks,grp_school_teacher,1,1,1,0
+access_marks_student,access.marks.student,model_student_marks,grp_school_student,1,0,0,0
+access_activity_admin,access.activity.admin,model_school_activity,grp_school_admin,1,1,1,1
+access_activity_teacher,access.activity.teacher,model_school_activity,grp_school_teacher,1,1,1,0
+access_activity_student,access.activity.student,model_school_activity,grp_school_student,1,0,0,0

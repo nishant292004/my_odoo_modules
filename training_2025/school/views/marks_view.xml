@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Form view of Marks -->
+    <record id="view_student_marks_form" model="ir.ui.view">
+        <field name="name">view.student.marks.form</field>
+        <field name="model">student.marks</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="subject_id"/>
+                        <field name="subject_code"/>
+                        <field name="total_marks"/>
+                        <field name="pass_marks"/>
+                        <field name="obt_marks"/>
+                        <field name="perc" widget="percentpie"/>
+                        <!-- The widget percentpie displays percentage using a pie chart -->
+                        <field name="result"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- List view of Marks -->
+    <record id="view_student_marks_list" model="ir.ui.view">
+        <field name="name">view.student.marks.list</field>
+        <field name="model">student.marks</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="subject_id"/>
+                <field name="total_marks"/>
+                <field name="pass_marks"/>
+                <field name="obt_marks"/>
+                <field name="perc" widget="progressbar"/>
+                <field name="result"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>

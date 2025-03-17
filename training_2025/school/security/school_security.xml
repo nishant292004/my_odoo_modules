@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Creating Groups -->
+
+    <!-- To create a group we will use the record tag and the model will be res.groups -->
+
+    <!-- Administrator Group -->
+    <record id="grp_school_admin" model="res.groups">
+        <field name="name">School Administrator</field>
+    </record>
+
+    <!-- Teacher Group -->
+    <record id="grp_school_teacher" model="res.groups">
+        <field name="name">School Teacher</field>
+    </record>
+
+    <!-- Student Group -->
+    <record id="grp_school_student" model="res.groups">
+        <field name="name">School Student</field>
+    </record>
+
+    <!-- Details of ir.model.access.csv file -->
+    <!-- The CSV file is basically a text file but can be opened either with text editor or an Xls editor (Excel, Libre Calc, Numbers) -->
+    <!-- The first line in the file are the fields for access rights -->
+    <!-- The access rights are stored in the model ir.model.access hence the name of the file is ir.model.access.csv -->
+    <!--The first field is id similar to our id field in the xml so we will call it xml id only -->
+    <!-- NOTE: The xml id is also called External ID -->
+    <!-- The naming convention is access_<model_name>_<group_name>_<additional_string> -->
+    <!-- The second field is the name which is the name of the access right -->
+    <!-- The naming convention is similar to id but '_' replaced by '.' -->
+    <!-- The third field is the model_id:id which is the XML ID (External ID) of the model for which the access right is to be given-->
+    <!-- The XML ID of the model is automatically defined when you create it in the python file -->
+    <!-- It is always model_<name_of_the_model_>('.' replaced by '_') -->
+    <!-- The fourth field is the group_id:id which is the XML ID (External ID) of the group to which the access right is to be given -->
+    <!-- This will be the xml ID of the group which you have defined in the Security's XML file -->
+    <!-- The next 4 are the Permission fields perm_read, perm_write, perm_create, perm_unlink which are boolean fields -->
+    <!-- the values are either 0 or 1. Where 1 means we are giving the access and 0 means we are not giving the access -->
+    <!-- perm_read is a field for Reading Permission -->
+    <!-- perm_write is a field for Reading Permission -->
+    <!-- perm_create is a field for Reading Permission -->
+    <!-- perm_unlink is a field for Reading Permission -->
+
+</odoo>
