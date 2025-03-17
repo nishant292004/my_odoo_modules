@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id='view_cars_form' model='ir.ui.view'>
+        <field name='name'>view.cars.form</field>
+        <field name='model'>cars.management</field>
+        <field name='arch' type='xml'>
+            <form>
+                <group>
+                <field name='car_name' help='This will be the full name of your "car with company"' placeholder='Car Name' />
+                <field name='company_name' help='This will be the name of "COMPANY"'/>
+                <field name='color' help='This will be the name of "COLOR"'/>
+                <field name='manufacturing_date' help='Your cars manufacturing date'/>
+                <field name='engine_id' help='Your cars engine type'/>
+                </group>
+            </form>
+        
+        </field>
+        
+    </record>
+
+    <record id="view_cars_tree" model="ir.ui.view">
+        <field name="name">view.cars.tree</field>
+        <field name="model">cars.management</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name='car_name'/>
+                <field name='company_name' />
+                <field name='color' />
+                <field name='manufacturing_date' />
+                <field name='engine_id' />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_cars_search" model="ir.ui.view">
+        <field name="name">view.cars.search</field>
+        <field name="model">cars.management</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name='car_name'/>
+                <field name='company_name' />
+                <field name='color' />
+                <field name='manufacturing_date' />
+                <field name='engine_id' />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_cars" model="ir.actions.act_window">
+        <field name="name">Cars</field>
+        <field name="res_model">cars.management</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id='menu_cars_app' name='Cars Management'/>
+    <menuitem id='menu_cars_info' name='Cars Info' parent='menu_cars_app'/>
+    <menuitem id="menu_cars" action="action_cars" parent="menu_cars_info"/>
+    <menuitem id="menu_config" name="Configuration" parent="menu_cars_app" sequence="100"/>
+
+
+
+</odoo>
