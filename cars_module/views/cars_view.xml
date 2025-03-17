@@ -54,9 +54,8 @@
     </record>
 
     <menuitem id='menu_cars_app' name='Cars Management'/>
-    <menuitem id='menu_cars_info' name='Cars Info' parent='menu_cars_app'/>
-    <menuitem id="menu_cars" action="action_cars" parent="menu_cars_info"/>
-    <menuitem id="menu_config" name="Configuration" parent="menu_cars_app" sequence="100"/>
+    <menuitem id='menu_cars_info' action="action_cars" parent='menu_cars_app'/>
+    <!-- <menuitem id="menu_cars" action="action_cars" parent="menu_cars_info"/> -->
 
 
 
