@@ -9,7 +9,7 @@
                 <group>
                 <field name='car_name' help='This will be the full name of your "car with company"' placeholder='Car Name' />
                 <field name='company_name' help='This will be the name of "COMPANY"'/>
-                <field name='color' help='This will be the name of "COLOR"'/>
+                <field name='color' widget='color_picker' help='This will be the name of "COLOR"'/>
                 <field name='manufacturing_date' help='Your cars manufacturing date'/>
                 <field name='engine_id' help='Your cars engine type'/>
                 </group>
