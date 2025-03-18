@@ -6,17 +6,34 @@
         <field name='model'>cars.management</field>
         <field name='arch' type='xml'>
             <form>
-                <group>
-                <field name='car_name' help='This will be the full name of your "car with company"' placeholder='Car Name' />
-                <field name='company_name' help='This will be the name of "COMPANY"'/>
-                <field name='color' widget='color_picker' help='This will be the name of "COLOR"'/>
-                <field name='manufacturing_date' help='Your cars manufacturing date'/>
-                <field name='engine_id' help='Your cars engine type'/>
-                </group>
+
+                <sheet>
+                    <group>
+                        <field name='car_name'
+                            help='This will be the full name of your "car with company"'
+                            placeholder='Car Name' />
+                        <field name='company_name' help='This will be the name of "COMPANY"' />
+                        <field name='color' widget='color_picker'
+                            help='This will be the name of "COLOR"' />
+                        <field name='manufacturing_date' help='Your cars manufacturing date' />
+                    </group>
+
+                    <notebook>
+                        <page name="pq_engine" string="Car Engine">
+                            <field name='engine_id'/>
+                        </page>
+                        <page name="pq_tagz" string="Car Tagz">
+                            <field name='tagz_ids' widget="many2many_tags"
+                                options="{'color_field': 'color_index'}" />
+                        </page>
+                    </notebook>
+
+                </sheet>
+
             </form>
-        
+
         </field>
-        
+
     </record>
 
     <record id="view_cars_tree" model="ir.ui.view">
@@ -24,7 +41,7 @@
         <field name="model">cars.management</field>
         <field name="arch" type="xml">
             <list>
-                <field name='car_name'/>
+                <field name='car_name' />
                 <field name='company_name' />
                 <field name='color' />
                 <field name='manufacturing_date' />
@@ -38,7 +55,7 @@
         <field name="model">cars.management</field>
         <field name="arch" type="xml">
             <search>
-                <field name='car_name'/>
+                <field name='car_name' />
                 <field name='company_name' />
                 <field name='color' />
                 <field name='manufacturing_date' />
@@ -53,10 +70,9 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id='menu_cars_app' name='Cars Management'/>
-    <menuitem id='menu_cars_info' action="action_cars" parent='menu_cars_app'/>
+    <menuitem id='menu_cars_app' name='Cars Management' />
+    <menuitem id='menu_cars_info' action="action_cars" parent='menu_cars_app' sequence='2' />
     <!-- <menuitem id="menu_cars" action="action_cars" parent="menu_cars_info"/> -->
-
 
 
 </odoo>

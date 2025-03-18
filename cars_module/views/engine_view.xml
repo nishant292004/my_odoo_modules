@@ -40,6 +40,6 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="menu_engine" action="action_engine" parent="menu_cars_app" sequence='100'/>
+    <menuitem id="menu_engine" action="action_engine" parent="menu_cars_app" sequence='5'/>
 
 </odoo>
