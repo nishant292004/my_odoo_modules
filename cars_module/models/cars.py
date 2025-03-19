@@ -10,7 +10,6 @@ class CarsDetails(models.Model):
 
     price = fields.Integer('Car price')
 
-    # if company_name is "skoda":
     color = fields.Integer('Color')
     manufacturing_date = fields.Date('Manufacture Date')
 

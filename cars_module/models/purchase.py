@@ -11,8 +11,8 @@ class CarsPurchase(models.Model):
     client_id = fields.Many2one('cars.client','Client')
     ph_no = fields.Char(related='client_id.ph_no',string='Phone No.')
 
-    car_bill = fields.Integer(compute='_calc_price' , string='Total Bill')
-    brokerage = fields.Integer(compute='_calc_brokerage',string='Brokerage(10%)')
+    car_bill = fields.Integer(compute='_calc_price' , string='Total Bill', store=True)
+    brokerage = fields.Integer(compute='_calc_brokerage',string='Brokerage(10%)', store=True)
 
     @api.depends('car_price')
 
