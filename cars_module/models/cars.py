@@ -5,10 +5,10 @@ class CarsDetails(models.Model):
     _description = 'Cars Management'
     _rec_name = 'car_name'
 
-    car_name = fields.Char('Car Name')
-    company_name = fields.Char('Company Name')
+    car_name = fields.Char('Car Name', required=True)
+    company_name = fields.Char('Company Name', required=True)
 
-    price = fields.Integer('Car price')
+    price = fields.Integer('Car price', required=True)
 
     color = fields.Integer('Color')
     manufacturing_date = fields.Date('Manufacture Date')

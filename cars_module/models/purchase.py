@@ -5,10 +5,10 @@ class CarsPurchase(models.Model):
     _description = 'Information about purchase'
     _rec_name = 'cars_id'
 
-    cars_id = fields.Many2one('cars.management','Car Name')
+    cars_id = fields.Many2one('cars.management','Car Name', required=True)
     car_price = fields.Integer(related='cars_id.price',string='Car Price')
 
-    client_id = fields.Many2one('cars.client','Client')
+    client_id = fields.Many2one('cars.client','Client', required=True)
     ph_no = fields.Char(related='client_id.ph_no',string='Phone No.')
 
     car_bill = fields.Integer(compute='_calc_price' , string='Total Bill', store=True)

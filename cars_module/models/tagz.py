@@ -7,5 +7,5 @@ class CarTagz(models.Model):
     _rec_name = 'tag_name'
 
 
-    tag_name = fields.Char('Tag Name')
-    color_index = fields.Integer('color')
+    tag_name = fields.Char('Tag Name', required=True)
+    color_index = fields.Integer('color', required=True)
