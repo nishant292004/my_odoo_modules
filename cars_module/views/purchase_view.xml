@@ -12,6 +12,11 @@
                     <field name='car_price' />
                     <field name='client_id' />
                     <field name='ph_no' />
+                    
+                    <h2>Your Bill</h2>
+                    
+                    <field name='brokerage' />
+                    <field name='car_bill' />
                 </group>
             </form>
         </field>

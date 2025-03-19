@@ -8,12 +8,14 @@
     'author':'Nishant', # Author of the module / app
     'depends': ['base'], # The parent modules on which your module / app depends on. At least base must be there if not depending on any other module(s).
     'data':[
+        'security/car_security.xml',
+        'security/ir.model.access.csv',
        'views/cars_view.xml',
        'views/engine_view.xml',
        'views/tagz_view.xml',
        'views/client_view.xml',
        'views/purchase_view.xml',
-       'security/ir.model.access.csv',
+       
 
     ], # Data a list containing all your xml and csv files. The sequence is very important. First we keep the security file where groups are created. Then the access rights where groups will be used and finally the views file.
     'sequence':10, # This will be the sequence of module to be displayed on the Apps menu
