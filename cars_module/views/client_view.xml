@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id='views_client_form' model='ir.ui.view'>
+        <field name='name'>view.client.form</field>
+        <field name='model'>cars.client</field>
+        <field name='arch' type='xml'>
+            <form>
+                <group>
+                    <field name='name' />
+                    <field name='ph_no' />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_client_tree" model="ir.ui.view">
+        <field name="name">view.client.tree</field>
+        <field name="model">cars.client</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name='name' />
+                <field name='ph_no' />
+
+            </list>
+        </field>
+    </record>
+
+    <record id="view_client_search" model="ir.ui.view">
+        <field name="name">view.client.search</field>
+        <field name="model">cars.client</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name='name' />
+                <field name='ph_no' />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_client" model="ir.actions.act_window">
+        <field name="name">Clients</field>
+        <field name="res_model">cars.client</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_client" action="action_client" parent="menu_cars_app" sequence='15' />
+
+</odoo>

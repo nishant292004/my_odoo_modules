@@ -43,6 +43,6 @@
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="menu_tagz" action="action_tagz" parent="menu_cars_app" sequence='10'/>
+    <menuitem id="menu_tagz" action="action_tagz" parent="menu_cars_app" sequence='80'/>
 
 </odoo>

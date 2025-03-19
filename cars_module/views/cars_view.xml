@@ -13,12 +13,18 @@
                             help='This will be the full name of your "car with company"'
                             placeholder='Car Name' />
                         <field name='company_name' help='This will be the name of "COMPANY"' />
+                        <field name='price'/>
+                        
                         <field name='color' widget='color_picker'
                             help='This will be the name of "COLOR"' />
                         <field name='manufacturing_date' help='Your cars manufacturing date' />
                     </group>
 
                     <notebook>
+                        <page name="pq_client" string="Car Client">
+                            <field name='client_id'/>
+                            <field name='ph_no'/>
+                        </page>
                         <page name="pq_engine" string="Car Engine">
                             <field name='engine_id'/>
                         </page>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id='views_purchase_form' model='ir.ui.view'>
+        <field name='name'>view.purchase.form</field>
+        <field name='model'>cars.purchase</field>
+        <field name='arch' type='xml'>
+            <form>
+                <group>
+                    <field name='cars_id' />
+                    <field name='car_price' />
+                    <field name='client_id' />
+                    <field name='ph_no' />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_purchase_tree" model="ir.ui.view">
+        <field name="name">view.purchase.tree</field>
+        <field name="model">cars.purchase</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name='cars_id' />
+                <field name='car_price' />
+                <field name='client_id' />
+                <field name='ph_no' />
+
+            </list>
+        </field>
+    </record>
+
+    <record id="view_client_purchase" model="ir.ui.view">
+        <field name="name">view.purchase.search</field>
+        <field name="model">cars.purchase</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name='cars_id' />
+                <field name='car_price' />
+                <field name='client_id' />
+                <field name='ph_no' />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_purchase" model="ir.actions.act_window">
+        <field name="name">Purchase</field>
+        <field name="res_model">cars.purchase</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_purchase" action="action_purchase" parent="menu_cars_app" sequence='25' />
+
+</odoo>
