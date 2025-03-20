@@ -12,7 +12,7 @@ class CarsPurchase(models.Model):
     ph_no = fields.Char(related='client_id.ph_no',string='Phone No.')
 
     car_bill = fields.Integer(compute='_calc_price' , string='Total Bill', store=True)
-    brokerage = fields.Integer(compute='_calc_brokerage',string='Brokerage(10%)', store=True)
+    brokerage = fields.Integer(compute='_calc_brokerage',string='Brokerage(6%)', store=True)
 
     @api.depends('car_price')
 
@@ -24,7 +24,7 @@ class CarsPurchase(models.Model):
         """
 
         for car in self:
-            car.brokerage = (car.car_price * 10)/100
+            car.brokerage = (car.car_price * 6)/100
 
     @api.depends('car_price','brokerage')
 
