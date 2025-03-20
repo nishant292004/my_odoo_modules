@@ -7,10 +7,13 @@
         <field name='model'>cars.client</field>
         <field name='arch' type='xml'>
             <form>
-                <group>
-                    <field name='name' />
-                    <field name='ph_no' />
-                </group>
+                <sheet>
+                    <group>
+                        <field name='name' />
+                        <field name='ph_no' />
+                        <field name='cars_ids' />
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -22,7 +25,7 @@
             <list>
                 <field name='name' />
                 <field name='ph_no' />
-
+                <field name='cars_ids' />
             </list>
         </field>
     </record>

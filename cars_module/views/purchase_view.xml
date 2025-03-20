@@ -7,17 +7,19 @@
         <field name='model'>cars.purchase</field>
         <field name='arch' type='xml'>
             <form>
-                <group>
-                    <field name='cars_id' />
-                    <field name='car_price' />
-                    <field name='client_id' />
-                    <field name='ph_no' />
-                    
-                    <h2>Your Bill</h2>
-                    
-                    <field name='brokerage' />
-                    <field name='car_bill' />
-                </group>
+                <sheet>
+                    <group>
+                        <field name='cars_id' />
+                        <field name='car_price' />
+                        <field name='client_id' />
+                        <field name='ph_no' />
+
+                        <h2>Your Bill</h2>
+
+                        <field name='brokerage' />
+                        <field name='car_bill' />
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>

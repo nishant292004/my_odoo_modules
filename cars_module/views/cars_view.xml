@@ -6,7 +6,6 @@
         <field name='model'>cars.management</field>
         <field name='arch' type='xml'>
             <form>
-
                 <sheet>
                     <group>
                         <field name='car_name'
@@ -22,8 +21,8 @@
 
                     <notebook>
                         <page name="pq_client" string="Car Client">
-                            <field name='client_id'/>
-                            <field name='ph_no'/>
+                            <field name='client_ids'/>
+                            <!-- <field name='ph_no'/> -->
                         </page>
                         <page name="pq_engine" string="Car Engine">
                             <field name='engine_id'/>
