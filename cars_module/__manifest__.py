@@ -15,6 +15,8 @@
        'views/tagz_view.xml',
        'views/client_view.xml',
        'views/purchase_view.xml',
+       'views/service_view.xml',
+       'views/parts_view.xml',
        
 
     ], # Data a list containing all your xml and csv files. The sequence is very important. First we keep the security file where groups are created. Then the access rights where groups will be used and finally the views file.

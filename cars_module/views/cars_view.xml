@@ -32,7 +32,6 @@
                                 options="{'color_field': 'color_index'}" />
                         </page>
                     </notebook>
-
                 </sheet>
 
             </form>
@@ -77,7 +76,6 @@
 
     <menuitem id='menu_cars_app' name='Cars Management' />
     <menuitem id='menu_cars_info' action="action_cars" parent='menu_cars_app' sequence='2' />
-    <!-- <menuitem id="menu_cars" action="action_cars" parent="menu_cars_info"/> -->
-
+    <menuitem id="menu_config" name='Additional' parent="menu_cars_app" sequence='100' />
 
 </odoo>
