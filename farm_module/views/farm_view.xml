@@ -25,10 +25,10 @@
         <field name="model">farm.model</field>
         <field name="arch" type="xml">
             <list>
-                <field name='farmer_name' />
+                <field name='farmer_name' required='1' />
                 <field name='farm_size' />
-                <field name='is_organic' />
-                <field name='est_date' />
+                <field name='is_organic' required='1' />
+                <field name='est_date' required='1' />
                 <field name='last_inspection' />
                 <field name='farm_type' />
             </list>
