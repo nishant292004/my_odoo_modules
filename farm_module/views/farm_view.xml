@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id='views_farm_form' model='ir.ui.view'>
+        <field name='name'>view.farm.form</field>
+        <field name='model'>farm.model</field>
+        <field name='arch' type='xml'>
+            <form>
+                <group>
+                    <field name='farmer_name' />
+                    <field name='farm_size' />
+                    <field name='is_organic' />
+                    <field name='description' />
+                    <field name='est_date' />
+                    <field name='last_inspection' />
+                    <field name='farm_type' />
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_farm_tree" model="ir.ui.view">
+        <field name="name">view.farm.tree</field>
+        <field name="model">farm.model</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name='farmer_name' />
+                <field name='farm_size' />
+                <field name='is_organic' />
+                <field name='est_date' />
+                <field name='last_inspection' />
+                <field name='farm_type' />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_farm_search" model="ir.ui.view">
+        <field name="name">view.farm.search</field>
+        <field name="model">farm.model</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name='farmer_name' />
+                <field name='farm_size' />
+                <field name='is_organic' />
+                <field name='est_date' />
+                <field name='last_inspection' />
+                <field name='farm_type' />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_farm" model="ir.actions.act_window">
+        <field name="name">Farm</field>
+        <field name="res_model">farm.model</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_farm_app" name='Farm Model' />
+    <menuitem id="menu_farm_info" action="action_farm" parent="menu_farm_app" />
+
+</odoo>
