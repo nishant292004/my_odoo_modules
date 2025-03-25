@@ -15,3 +15,4 @@ class MyFarm(models.Model):
     farm_type = fields.Selection([('small','Small'),('medium','Medium'),('large','Large')],string='Farm Type',required=True)
     code = fields.Char(string='Farm Code', size=4)
     active = fields.Boolean(string='Active' , default = True, invisible=True)
+    password = fields.Char('Password')

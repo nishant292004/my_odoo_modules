@@ -22,6 +22,7 @@
                         <field name='farm_type' help="select the type of farm." />
                         <field name='code' help="select the code of farm." />
                         <field name='active' invisible="1" />
+                        <field name='password' password="."/>
                     </group>
                     <separator string='Additional Information' />
                     <notebook>
