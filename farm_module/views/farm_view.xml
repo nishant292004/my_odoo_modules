@@ -15,6 +15,7 @@
                     <field name='est_date' help="the date when the farm is established."/>
                     <field name='last_inspection' help="the date when the last inspection was held."/>
                     <field name='farm_type' help="select the type of farm."/>
+                    <field name='code' help="select the code of farm."/>
                 </group>
             </form>
         </field>
@@ -31,6 +32,7 @@
                 <field name='est_date' required='1' />
                 <field name='last_inspection' />
                 <field name='farm_type' />
+                <field name='code' />
             </list>
         </field>
     </record>
@@ -46,6 +48,7 @@
                 <field name='est_date' />
                 <field name='last_inspection' />
                 <field name='farm_type' />
+                <field name='code' />
             </search>
         </field>
     </record>
