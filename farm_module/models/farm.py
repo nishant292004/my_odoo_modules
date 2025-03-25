@@ -3,7 +3,7 @@ from odoo import models,fields
 class MyFarm(models.Model):
     _name = 'farm.model'
     _description = 'Farm Model'
-    _rec_name = 'farmer_name'
+    _rec_name = 'code'
     _order = 'farmer_name asc'
 
     farmer_name = fields.Char("Farmer's Name", required=True)
