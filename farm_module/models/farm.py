@@ -10,6 +10,6 @@ class MyFarm(models.Model):
     farm_size = fields.Float("Area Of Farm (Hectares)",required=True)
     is_organic = fields.Boolean('Is Organic ?')
     description = fields.Text('Description')
-    est_date = fields.Date('Establishment Date',required=True)
+    est_date = fields.Date('Establishment Date',required=True , index=True, default = fields.Date.context_today)
     last_inspection = fields.Datetime('Last Inspection Date',required=True)
     farm_type = fields.Selection([('small','Small'),('medium','Medium'),('large','Large')],string='Farm Type',required=True)
