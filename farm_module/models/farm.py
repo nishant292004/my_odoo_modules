@@ -24,6 +24,6 @@ class MyFarm(models.Model):
     ('vegetable', 'Vegetable Farm'),
     ('grain', 'Grain Farm')
     ], string='Harvest Type', required=True)
-    crop = fields.Many2one(comodel_name='farm.crop',string='Crop')
-    code = fields.Char(related='crop.code',string='Code')
+    crop_id = fields.Many2one(comodel_name='farm.crop',string='Crop')
+    code_cr = fields.Char(related='crop_id.code',string='Code')
 

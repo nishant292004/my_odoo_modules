@@ -12,6 +12,7 @@
                         <field name='name'/>
                         <field name='crop_type'/>
                         <field name='code'/>
+                        <field name='farm_ids'/>
                     </group>
                 </sheet>
             </form>
