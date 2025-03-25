@@ -7,16 +7,29 @@
         <field name='model'>farm.model</field>
         <field name='arch' type='xml'>
             <form>
+                <header>
+                    <h1>Fill The Necessary Details Of The Farm</h1>
+                </header>
+                <sheet>
                 <group>
                     <field name='farmer_name' placeholder="Farmer Name" help="The farmer's name."/>
                     <field name='farm_size' help="the size of farm in hectares." />
                     <field name='is_organic' help="check if the farming is organic."/>
-                    <field name='description' placeholder="add the description" help="Give the small description about farm."/>
                     <field name='est_date' help="the date when the farm is established."/>
                     <field name='last_inspection' help="the date when the last inspection was held."/>
                     <field name='farm_type' help="select the type of farm."/>
                     <field name='code' help="select the code of farm."/>
                 </group>
+                <separator string='Additional Information'/>
+                <notebook>
+                    <page name="pq_description" string="Farm Description">
+                    <field name='description' placeholder="add the description" help="Give the small description about farm."/>
+                    </page>
+                </notebook>
+                </sheet>
+                <footer>
+                    <h2>These are the information's of that Farm.</h2>
+                </footer>
             </form>
         </field>
     </record>
