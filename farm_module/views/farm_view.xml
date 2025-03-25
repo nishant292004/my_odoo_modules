@@ -8,10 +8,10 @@
         <field name='arch' type='xml'>
             <form>
                 <group>
-                    <field name='farmer_name' help="The farmer's name."/>
+                    <field name='farmer_name' placeholder="Farmer Name" help="The farmer's name."/>
                     <field name='farm_size' help="the size of farm in hectares." />
                     <field name='is_organic' help="check if the farming is organic."/>
-                    <field name='description' help="Give the small description about farm."/>
+                    <field name='description' placeholder="add the description" help="Give the small description about farm."/>
                     <field name='est_date' help="the date when the farm is established."/>
                     <field name='last_inspection' help="the date when the last inspection was held."/>
                     <field name='farm_type' help="select the type of farm."/>
