@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="grp_farm_admin" model="res.groups">
+        <field name="name">Farm Administrator(Farmer)</field>
+    </record>
+
+     <record id="grp_farm_client" model="res.groups">
+        <field name="name">Farm Client</field>
+    </record>
+
+</odoo>

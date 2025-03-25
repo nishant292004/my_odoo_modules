@@ -7,7 +7,9 @@
     'author':'Nishant', 
     'depends': ['base'], 
     'data':[
-       
+        'security/farm_security.xml',
+       'security/ir.model.access.csv',
+       'views/farm_view.xml',
     ], 
     'sequence':10, 
     'auto_install': False, 
