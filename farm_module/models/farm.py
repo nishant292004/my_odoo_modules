@@ -14,3 +14,4 @@ class MyFarm(models.Model):
     last_inspection = fields.Datetime('Last Inspection Date',required=True)
     farm_type = fields.Selection([('small','Small'),('medium','Medium'),('large','Large')],string='Farm Type',required=True)
     code = fields.Char(string='Farm Code', size=4)
+    active = fields.Boolean(string='Active' , default = True, invisible=True)
