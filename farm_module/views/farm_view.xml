@@ -35,6 +35,10 @@
                             <page name="pq_description" string="Farm Description">
                                 <field name='description' placeholder="add the description"
                                     help="Give the small description about farm." />
+                            </page>\
+                            <page name="pq_crop" string="Crop Production">
+                                <field name='crop'/>
+                                <field name='code'/>
                             </page>
                         </notebook>
                    
