@@ -23,6 +23,7 @@
                         <field name='code' help="select the code of farm." />
                         <field name='active' invisible="1" />
                         <field name='password' password="."/>
+                        <field name='email' widget='email'/>
                     </group>
                     <separator string='Additional Information' />
                     <notebook>

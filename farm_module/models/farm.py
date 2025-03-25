@@ -16,3 +16,4 @@ class MyFarm(models.Model):
     code = fields.Char(string='Farm Code', size=4)
     active = fields.Boolean(string='Active' , default = True, invisible=True)
     password = fields.Char('Password')
+    email = fields.Char('Email')
