@@ -17,3 +17,11 @@ class MyFarm(models.Model):
     active = fields.Boolean(string='Active' , default = True, invisible=True)
     password = fields.Char('Password')
     email = fields.Char('Email')
+    priority = fields.Selection([(str(ele),str(ele)) for ele in range(0,5)], 'Priority')
+    harv_type = fields.Selection([
+    ('organic', 'Organic Farm'),
+    ('fruit', 'Fruit Farm'),
+    ('vegetable', 'Vegetable Farm'),
+    ('grain', 'Grain Farm')
+], string='Harvest Type', required=True)
+
