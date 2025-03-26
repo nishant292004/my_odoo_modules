@@ -10,5 +10,10 @@ class FarmMachines(models.Model):
     currency_id = fields.Many2one('res.currency','Currency')
     price = fields.Monetary(currency_field='currency_id',string='Machine price')
     reference = fields.Reference([('farm.model','Farm'),('farm.farmer','Farmer'),('farm.crop','Crop')], string='Reference')
+    file_name = fields.Char('File Name')
+    doc = fields.Binary('Machine Specification')
+    photo = fields.Image('Image')
+
+
 
     
