@@ -12,7 +12,7 @@
                         <field name='name'/>
                         <field name='age'/>
                         <field name='mo_no'/>
-                        <field name='farm_id'/>
+                        <field name='farm_id' options="{'no_create':1, 'no_open':1}"/>
                     </group>
                     <notebook>
                         <page id='pg_crop' string='Specialization (Crops)'>
