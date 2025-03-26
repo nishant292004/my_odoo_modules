@@ -14,6 +14,7 @@
                         <field name='description' />
                         <field name='currency_id' />
                         <field name='price' />
+                        <field name='reference'/>
                     </group>
                 </sheet>
             </form>

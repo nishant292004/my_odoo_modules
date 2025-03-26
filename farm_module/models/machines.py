@@ -9,5 +9,6 @@ class FarmMachines(models.Model):
     description = fields.Text("Description")
     currency_id = fields.Many2one('res.currency','Currency')
     price = fields.Monetary(currency_field='currency_id',string='Machine price')
+    reference = fields.Reference([('farm.model','Farm'),('farm.farmer','Farmer'),('farm.crop','Crop')], string='Reference')
 
     
