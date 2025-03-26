@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id='views_farmer_form' model='ir.ui.view'>
+        <field name='name'>view.farmer.form</field>
+        <field name='model'>farm.farmer</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <group>
+                        <field name='name'/>
+                        <field name='age'/>
+                        <field name='mo_no'/>
+                        <field name='crop_ids'/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_farmer_tree" model="ir.ui.view">
+        <field name="name">view.farmer.tree</field>
+        <field name="model">farm.farmer</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name='name'/>
+                <field name='age'/>
+                <field name='mo_no'/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_farmer_search" model="ir.ui.view">
+        <field name="name">view.farmer.search</field>
+        <field name="model">farm.farmer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name='name'/>
+                <field name='age'/>
+                <field name='mo_no'/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_farmer" model="ir.actions.act_window">
+        <field name="name">Farmer</field>
+        <field name="res_model">farm.farmer</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_farmer_info" action="action_farmer" parent="menu_farm_app" sequence='10' />
+
+</odoo>

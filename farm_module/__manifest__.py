@@ -11,6 +11,7 @@
        'security/ir.model.access.csv',
        'views/farm_view.xml',
        'views/crop_view.xml',
+       'views/farmer_view.xml',
     ], 
     'sequence':10, 
     'auto_install': False, 

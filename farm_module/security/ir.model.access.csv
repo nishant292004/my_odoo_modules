@@ -3,3 +3,5 @@ access_farm_farmer,access.farm.farmer,model_farm_model,grp_farm_admin,1,1,1,1
 access_farm_client,access.farm.client,model_farm_model,grp_farm_client,1,0,0,0
 access_crop_farmer,access.crop.farmer,model_farm_crop,grp_farm_admin,1,1,1,1
 access_crop_client,access.crop.client,model_farm_crop,grp_farm_client,1,0,0,0
+access_farmer_farmer,access.farmer.farmer,model_farm_farmer,grp_farm_admin,1,1,1,1
+access_farmer_client,access.farmer.client,model_farm_farmer,grp_farm_client,1,0,0,0

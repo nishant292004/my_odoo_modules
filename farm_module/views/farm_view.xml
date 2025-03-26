@@ -80,7 +80,6 @@
                 <field name='est_date' />
                 <field name='last_inspection' />
                 <field name='farm_type' />
-                
             </search>
         </field>
     </record>
@@ -92,6 +91,6 @@
     </record>
 
     <menuitem id="menu_farm_app" name='Farm Model' />
-    <menuitem id="menu_farm_info" action="action_farm" parent="menu_farm_app" />
+    <menuitem id="menu_farm_info" action="action_farm" parent="menu_farm_app" sequence='1' />
 
 </odoo>
