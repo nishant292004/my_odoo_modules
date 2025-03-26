@@ -40,5 +40,6 @@ class MyFarm(models.Model):
 
     crop_id = fields.Many2one(comodel_name='farm.crop',string='Crop',ondelete='cascade')
 
+
     code_cr = fields.Char(related='crop_id.code',string='Code')
 

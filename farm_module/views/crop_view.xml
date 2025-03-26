@@ -13,6 +13,9 @@
                         <field name='crop_type'/>
                         <field name='code'/>
                         <field name='farm_ids'/>
+                        <field name='cost'/>
+                        <field name='govt_add'/>
+                        <field name='mrkt'/>
                     </group>
                 </sheet>
             </form>
