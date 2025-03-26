@@ -9,7 +9,7 @@ class MyFarm(models.Model):
 
     farmer_name = fields.Char("Farmer's Name", required=True)
 
-    farm_size = fields.Float("Area Of Farm (Hectares)",required=True, digits=(10,3))
+    farm_size = fields.Float("Area Of Farm (Hectares)",required=True, digits=(10,3) , aggregator='avg')
 
     is_organic = fields.Boolean('Is Organic ?')
 
