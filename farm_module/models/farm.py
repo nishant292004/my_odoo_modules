@@ -1,4 +1,4 @@
-from odoo import models,fields
+from odoo import models,fields,api
 
 class MyFarm(models.Model):
     
@@ -38,8 +38,33 @@ class MyFarm(models.Model):
     ('grain', 'Grain Farm')
     ], string='Harvest Type', required=True)
 
-    crop_id = fields.Many2one(comodel_name='farm.crop',string='Crop',ondelete='cascade')
+    crop_id = fields.One2many(comodel_name='farm.crop',inverse_name='farm_ids',string='Crop',ondelete='cascade')
+    
+    govt_total = fields.Float(compute='_calc_govt_price', string='Total Government Price (For All the Crops)')
+    mrkt_total = fields.Float(compute='_calc_mrkt_price', string='Total Market Price (For All the Crops)')
 
+    @api.depends('crop_id')
 
-    code_cr = fields.Char(related='crop_id.code',string='Code')
+    def _calc_govt_price(self):
+
+        """
+        This method is used to calculate the total govt price based on cost and govt profit margin.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+
+        for price in self:
+            price.govt_total = sum(price.crop_id.mapped('govt_price'))
+
+    @api.depends('crop_id')
+
+    def _calc_mrkt_price(self):
+        """
+        This method is used to calculate the total market price based on cost and market profit margin.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+
+        for price in self:
+            price.mrkt_total = sum(price.crop_id.mapped('mrkt_price'))
 

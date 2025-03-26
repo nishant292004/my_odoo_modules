@@ -42,7 +42,10 @@
                         </page>
                         <page name="pq_crop" string="Crop Production">
                             <field name='crop_id' />
-                            <field name='code_cr' />
+                            <lable for='Total Government Price (For All the Crops)'/>
+                            <field name='govt_total' />
+                            <lable for='Total Market Price (For All the Crops)'/>                         
+                            <field name='mrkt_total' />
                         </page>
                     </notebook>
 

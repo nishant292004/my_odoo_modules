@@ -7,7 +7,7 @@ class FarmCrop(models.Model):
     name = fields.Char('Crop Name')
     crop_type = fields.Selection([('monsoon','Monsoon Season'),('winter','Winter Season'),('short','Short Season')],string='Type Of Crop')
     code = fields.Char(string='Code',size=4)
-    farm_ids = fields.One2many(comodel_name='farm.model',inverse_name='crop_id',string='Farm')
+    farm_ids = fields.Many2one(comodel_name='farm.model',string='Farm Code')
     cost = fields.Float('Cost (Rs.)')
     govt_add = fields.Float("Government's Profit Margin (%)")
     mrkt = fields.Float("Market's Profit Margin (%) ")

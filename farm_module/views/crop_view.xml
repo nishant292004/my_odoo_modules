@@ -32,6 +32,8 @@
                 <field name='name'/>
                 <field name='crop_type'/>
                 <field name='code'/>
+                <field name='govt_price'/>
+                <field name='mrkt_price'/>
             </list>
         </field>
     </record>
