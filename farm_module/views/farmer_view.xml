@@ -12,6 +12,7 @@
                         <field name='name'/>
                         <field name='age'/>
                         <field name='mo_no'/>
+                        <field name='farm_id'/>
                     </group>
                     <notebook>
                         <page id='pg_crop' string='Specialization (Crops)'>
@@ -34,6 +35,7 @@
                 <field name='name'/>
                 <field name='age'/>
                 <field name='mo_no'/>
+                <field name='farm_id'/>
             </list>
         </field>
     </record>
@@ -46,6 +48,7 @@
                 <field name='name'/>
                 <field name='age'/>
                 <field name='mo_no'/>
+                <field name='farm_id'/>
             </search>
         </field>
     </record>
