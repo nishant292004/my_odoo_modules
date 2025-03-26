@@ -51,6 +51,12 @@ class MyFarm(models.Model):
                               ], default='planting')
     sequence = fields.Integer('Sequence')
 
+    parent_id = fields.Many2one('farm.model','Parent Farm')
+
+    parent_path = fields.Char('Parent Path', index=True)
+
+
+
 
 
     @api.depends('crop_id')
