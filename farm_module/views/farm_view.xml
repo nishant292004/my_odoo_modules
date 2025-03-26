@@ -30,6 +30,7 @@
                         <field name='active' invisible="1" />
                         <field name='password' password="." />
                         <field name='email' widget='email' />
+                        <field name='sequence' />
                         <field name='priority' widget='priority' />
                         <field name='harv_type' widget='radio' />
                     </group>
@@ -42,9 +43,9 @@
                         </page>
                         <page name="pq_crop" string="Crop Production">
                             <field name='crop_id' />
-                            <lable for='Total Government Price (For All the Crops)'/>
+                            <lable for='Total Government Price (For All the Crops)' />
                             <field name='govt_total' />
-                            <lable for='Total Market Price (For All the Crops)'/>                         
+                            <lable for='Total Market Price (For All the Crops)' />
                             <field name='mrkt_total' />
                         </page>
                     </notebook>
@@ -60,6 +61,7 @@
         <field name="model">farm.model</field>
         <field name="arch" type="xml">
             <list>
+                <field name='sequence' widget='handle'/>
                 <field name='code' />
                 <field name='farm_size' required='1' />
                 <field name='is_organic' />

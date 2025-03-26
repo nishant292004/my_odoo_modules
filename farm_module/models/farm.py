@@ -49,6 +49,8 @@ class MyFarm(models.Model):
                               ('stored','Stored'),
                               ('selling','Selling'),
                               ], default='planting')
+    sequence = fields.Integer('Sequence')
+
 
 
     @api.depends('crop_id')
