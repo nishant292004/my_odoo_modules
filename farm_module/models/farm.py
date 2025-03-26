@@ -43,6 +43,14 @@ class MyFarm(models.Model):
     govt_total = fields.Float(compute='_calc_govt_price', string='Total Government Price (For All the Crops)')
     mrkt_total = fields.Float(compute='_calc_mrkt_price', string='Total Market Price (For All the Crops)')
 
+    state = fields.Selection([('planting','Planting'),
+                              ('maintenance','Maintenance'),
+                              ('harvesting','Harvesting'),
+                              ('stored','Stored'),
+                              ('selling','Selling'),
+                              ], default='planting')
+
+
     @api.depends('crop_id')
 
     def _calc_govt_price(self):
