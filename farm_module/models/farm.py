@@ -40,8 +40,8 @@ class MyFarm(models.Model):
 
     crop_id = fields.One2many(comodel_name='farm.crop',inverse_name='farm_ids',string='Crop',ondelete='cascade')
     
-    govt_total = fields.Float(compute='_calc_govt_price', string='Total Government Price (For All the Crops)')
-    mrkt_total = fields.Float(compute='_calc_mrkt_price', string='Total Market Price (For All the Crops)')
+    govt_total = fields.Float(compute='_calc_govt_price', string='Total Government Price (For All the Crops)', store=True)
+    mrkt_total = fields.Float(compute='_calc_mrkt_price', string='Total Market Price (For All the Crops)', store=True)
 
     state = fields.Selection([('planting','Planting'),
                               ('maintenance','Maintenance'),
@@ -56,7 +56,6 @@ class MyFarm(models.Model):
     child_ids = fields.One2many('farm.model','parent_id','Child Farms')
 
     parent_path = fields.Char('Parent Path', index=True)
-
 
 
 
