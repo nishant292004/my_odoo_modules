@@ -5,7 +5,7 @@ class Farmer(models.Model):
     _description = 'farmer of the farm'
 
     name = fields.Char("Farmer's Name")
-    age = fields.Integer("Age")
+    age = fields.Integer(string="Age",aggregator='max')
     mo_no = fields.Char("Mobile no.")
     farm_id = fields.Many2one(comodel_name='farm.model', string='Farm Code', ondelete="restrict")
     crop_ids = fields.Many2many(comodel_name='farm.crop',string="Types Of Crops")
