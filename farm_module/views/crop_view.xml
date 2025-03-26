@@ -16,6 +16,8 @@
                         <field name='cost'/>
                         <field name='govt_add'/>
                         <field name='mrkt'/>
+                        <field name='govt_price'/>
+                        <field name='mrkt_price'/>
                     </group>
                 </sheet>
             </form>
