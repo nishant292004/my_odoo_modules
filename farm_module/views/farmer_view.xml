@@ -12,8 +12,15 @@
                         <field name='name'/>
                         <field name='age'/>
                         <field name='mo_no'/>
-                        <field name='crop_ids'/>
                     </group>
+                    <notebook>
+                        <page id='pg_crop' string='Specialization (Crops)'>
+                         <field name='crop_ids'/>                       
+                        </page>
+                        <page id='pg_machine' string='Machines'>
+                         <field name='machine_ids'/>                       
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
