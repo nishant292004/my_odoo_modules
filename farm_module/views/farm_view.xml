@@ -51,6 +51,8 @@
                         <page name="pq_hierarchy" string="Farm Hierarchy">
                             <group>
                             <field name='parent_id' />
+                            <separator string='Child Farm'/>
+                            <field name="child_ids"/>
                             </group>
                         </page>
                     </notebook>

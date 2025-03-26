@@ -53,6 +53,8 @@ class MyFarm(models.Model):
 
     parent_id = fields.Many2one('farm.model','Parent Farm')
 
+    child_ids = fields.One2many('farm.model','parent_id','Child Farms')
+
     parent_path = fields.Char('Parent Path', index=True)
 
 
