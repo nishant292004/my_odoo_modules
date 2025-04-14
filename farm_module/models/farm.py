@@ -458,3 +458,20 @@ class MyFarm(models.Model):
         new_crop = self.write(new_rec)
         print("O2M UPDATED",new_crop)  
 
+    def change_o2m_rec(self):
+        
+        """
+        This method is used to change existing O2M records.
+        ------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {
+            'crop_ids':[
+                (6,0,[55,57]),
+                (Command.set([64,65]))],
+            
+        } 
+        new_crop = self.write(new_rec)
+        print("O2M UPDATED",new_crop)  
+
