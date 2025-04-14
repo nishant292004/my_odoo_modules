@@ -75,3 +75,33 @@ class Farmer(models.Model):
 
         union_res = name_obj | male_obj
         print("UNION RESULT",union_res)
+
+    def inersec_rec(self):
+        """
+        This method is used to find intersection in the records.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        cr_obj = self.env['farm.farmer'].search([])
+        name_obj = cr_obj.filtered(lambda rec:rec.name=='Rohan Prajapati')
+        print(name_obj.ids)
+        male_obj = cr_obj.filtered(lambda rec:rec.gender=='male')
+        print(male_obj.ids)
+
+        intersec_res = name_obj & male_obj
+        print("INTERSECTION RESULT",intersec_res)
+
+    def diff_rec(self):
+        """
+        This method is used to find the difference in the records.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        cr_obj = self.env['farm.farmer'].search([])
+        name_obj = cr_obj.filtered(lambda rec:rec.name=='Rohan Prajapati')
+        print(name_obj.ids)
+        male_obj = cr_obj.filtered(lambda rec:rec.gender=='male')
+        print(male_obj.ids)
+
+        diff_res = male_obj - name_obj
+        print("DIFFERENCE RESULT",diff_res)

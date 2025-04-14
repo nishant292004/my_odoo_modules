@@ -19,6 +19,8 @@
                     <button name='check_rec_set' string='check rec' type ='object'/>                
                     <button name='check_subset' string='check subset' type ='object'/>                
                     <button name='union_rec' string='union' type ='object'/>                
+                    <button name='inersec_rec' string='intersection' type ='object'/>                
+                    <button name='diff_rec' string='difference' type ='object'/>                
                     <!-- <button name='%(action_farm)d' string='Related' type ='object'/> -->
                 </header>
                 <sheet>
