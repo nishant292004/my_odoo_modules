@@ -214,3 +214,13 @@ class MyFarm(models.Model):
         farm_data = self.env['farm.model'].search([])
         fill_rec = farm_data.filtered(lambda rec: not rec.farmer_id)
         print(fill_rec)         
+
+    def filt_mult_cond(self):
+        """
+        This method is used to filter the record using multple conditions.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        farm_data = self.env['farm.model'].search([])
+        fill_rec = farm_data.filtered(lambda rec: not rec.farmer_id and rec.farm_type)
+        print(fill_rec) 
