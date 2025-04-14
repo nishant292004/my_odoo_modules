@@ -110,4 +110,60 @@ class MyFarm(models.Model):
         @param self: object pointer
         """
         for farm in self:
-            print(farm)  
+            print(farm) 
+
+    def fetch_val_rec_set(self):
+        """
+        This method is used to fetch the value of the record from the record set.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        for farm in self:
+            print(farm.code) 
+    
+    def fetch_val_diff_rec_set(self):
+        """
+        This method is used to fetch the value of the record from the related model record set.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        crop_obj = self.env['farm.crop'].search([])
+
+        for crop in crop_obj:
+            print(crop.name)
+    
+    def fetch_mul_diff_rec_set(self):
+        """
+        This method is used to fetch the value of the record from the related model with muliple recordset record set.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        crop_obj = self.env['farm.crop'].search([])
+
+        crop_names = crop_obj.mapped('name')
+        print(crop_names)
+
+    def fetch_one_ens_one(self):
+        """
+        This method is used to fetch the value of record set using ensure_one.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        crop_obj = self.env['farm.crop'].search([('id','=',4)])
+        crop_obj.ensure_one()
+
+        crop_names = crop_obj.mapped('name')
+        print(crop_names)  
+
+    def fetch_mul_ens_one(self):
+        """
+        This method is used to fetch the value of record set using ensure_one.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        crop_obj = self.env['farm.crop'].search([])
+        crop_obj.ensure_one()
+
+        crop_names = crop_obj.mapped('name')
+        print(crop_names)        
+
