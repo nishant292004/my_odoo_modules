@@ -126,3 +126,28 @@ class FarmCrop(models.Model):
 
         comp_data = self.env.ref('base.main_company')
         print(comp_data)      
+
+
+    # ORM Methods
+
+    def create_rec(self):
+        """
+        This method is used to create records using create method
+        ---------------------------------------------------------
+        @params self: Object pointer
+
+        """
+
+        new_rec =  {
+            'name':'peanut',
+            'crop_type':'monsoon',
+            'farm_id' : 4,
+            'code':'PNUT',
+            'cost':'8900.0',
+            'govt_add':'56.0',
+            'mrkt': '78.0'
+        }   
+        
+         
+        new_crop = self.create(new_rec)
+        print("Record Created",new_crop)

@@ -9,14 +9,15 @@
             <form>
                 <sheet>
                     <header>
-                        <button name='print_records' string='update' type ='object'/>                
+                        <!-- <button name='print_records' string='update' type ='object'/>                
                         <button name='print_dict_records' string='print in dict' type ='object'/>                
                         <button name='print_dict_records_all' string='print all records' type ='object'/>                
                         <button name='del_records' string='delete' type ='object'/>                
                         <button name='print_data' string='print data' type ='object'/>                
                         <button name='list_modl' string='model data' type ='object'/>                
-                        <button name='print_from_xml_id' string='data of id' type ='object'/>                
+                        <button name='print_from_xml_id' string='data of id' type ='object'/>                 -->
                         <button name='print_rec_add_data' string='additional Data' type ='object'/>                
+                        <button name='create_rec' string='create rec' type ='object'/>                
                     </header>
                     <group>
                         <field name='name'/>
