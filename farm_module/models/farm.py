@@ -94,4 +94,11 @@ class MyFarm(models.Model):
     # what is self ?
     # self is a recordset of the current model.which contains the model name and ids of the records.   
 
-   
+    def fetch_rec_set(self):
+        """
+        This method is used to fetch the blank record set of another model.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        crop_obj = self.env['farm.crop']
+        print(crop_obj)
