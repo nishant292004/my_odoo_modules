@@ -390,3 +390,20 @@ class MyFarm(models.Model):
         new_crop = self.write(new_rec)
         print("O2M UPDATED",new_crop)  
   
+    def delete_o2m_rec(self):
+        
+        """
+        This method is used to delete existing O2M records .
+        ----------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {
+            'crop_ids':[
+                (2,62),
+                (Command.delete(63))],
+            
+        } 
+        new_crop = self.write(new_rec)
+        print("O2M UPDATED",new_crop)  
+

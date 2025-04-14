@@ -34,12 +34,13 @@
                 <!-- <button name='cond_in_list' string='return' type ='object'/>
                 <button name='sorted_rec' string='sort' type ='object'/>
                 <button name='sorted_rec_lambda' string='sort(lambda)' type ='object'/> -->
-                <button name='sorted_rec_lambda_rev' string='rev sort' type ='object'/>
+                <!-- <button name='sorted_rec_lambda_rev' string='rev sort' type ='object'/>
                 <button name='create_rec_O2M' string='create (crops)' type ='object'/>
                 <button name='create_rec_M2M' string='create (machines)' type ='object'/>
                 <button name='create_rec_set_M2M' string='set (machines)' type ='object'/>
-                <button name='write_rec_O2M' string='write' type ='object'/>
+                <button name='write_rec_O2M' string='write' type ='object'/> -->
                 <button name='update_o2m_rec' string='update(crops)' type ='object'/>
+                <button name='delete_o2m_rec' string='delete(crops)' type ='object'/>
 
                 
 
