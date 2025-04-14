@@ -60,3 +60,18 @@ class Farmer(models.Model):
         res_2 = name_obj < male_obj
         print("RESULT-1",res_1)
         print("RESULT-2",res_2)
+
+    def union_rec(self):
+        """
+        This method is used to union the records.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        cr_obj = self.env['farm.farmer'].search([])
+        name_obj = cr_obj.filtered(lambda rec:rec.name=='Rohan Prajapati')
+        print(name_obj.ids)
+        male_obj = cr_obj.filtered(lambda rec:rec.gender=='female')
+        print(male_obj.ids)
+
+        union_res = name_obj | male_obj
+        print("UNION RESULT",union_res)
