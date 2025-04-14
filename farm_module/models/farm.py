@@ -102,3 +102,12 @@ class MyFarm(models.Model):
         """
         crop_obj = self.env['farm.crop']
         print(crop_obj)
+
+    def fetch_one_rec_set(self):
+        """
+        This method is used to fetch the one record from record set.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        for farm in self:
+            print(farm)  
