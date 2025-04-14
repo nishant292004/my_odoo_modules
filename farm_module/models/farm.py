@@ -242,4 +242,34 @@ class MyFarm(models.Model):
         @param self: object pointer
         """
         concat_list = [rec.code+'-'+rec.farm_type for rec in self] 
-        print(concat_list)    
+        print(concat_list) 
+
+    def sorted_rec(self):
+        """
+        This method is used to sort the records using condition.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        obj = self.env['farm.model'].search([])
+        sort_recs = obj.sorted('farm_size')   
+        print(sort_recs)     
+
+    def sorted_rec_lambda(self):
+        """
+        This method is used to sort the records using lambda condition.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        obj = self.env['farm.model'].search([])
+        sort_recs = obj.sorted(lambda rec:rec.farm_size)   
+        print(sort_recs)    
+
+    def sorted_rec_lambda_rev(self):
+        """
+        This method is used to sort the records in descending order using lambda condition.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        obj = self.env['farm.model'].search([])
+        sort_recs = obj.sorted(lambda rec:rec.farm_size,reverse=True)   
+        print(sort_recs)      
