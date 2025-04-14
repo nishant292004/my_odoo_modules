@@ -172,3 +172,46 @@ class FarmCrop(models.Model):
          
         new_farmer = farmer_obj.create(new_rec)
         print("Record Created",new_farmer)    
+
+    # write() method 
+
+    def update_rec(self):
+        """
+        This method is used to update records using write method
+        ---------------------------------------------------------
+        @params self: Object pointer
+
+        """
+
+        new_rec =  {
+            'name':'peanut',
+            'crop_type':'monsoon',
+            'farm_id' : 4,
+            'code':'PNUT',
+            'cost':'8900.0',
+            'govt_add':'56.0',
+            'mrkt': '78.0'
+        }   
+        
+         
+        new_crop = self.write(new_rec)
+        print("Record Created",new_crop)
+
+    def update_rec_diff(self):
+        """
+        This method is used to update records of another model using write method
+        ---------------------------------------------------------
+        @params self: Object pointer
+
+        """
+        farm_obj = self.env['farm.model'].search([])
+
+        for farm in farm_obj:    
+
+            new_rec =  {
+                'farm_type':'medium'
+            }   
+                
+            farm_updated = farm.write(new_rec)
+            print("Record Created",farm_updated)
+

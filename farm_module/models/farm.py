@@ -339,4 +339,54 @@ class MyFarm(models.Model):
             
         } 
         new_crop = self.create(new_rec)
-        print("M2M field created",new_crop)    
+        print("M2M field created",new_crop)  
+        
+    def write_rec_O2M(self):
+        
+        """
+        This method is used to write O2M records .
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {'code':'DUMY',
+            'crop_ids':[(0,0,{
+                'name':'millets',
+                'crop_type':'monsoon',
+                'farm_id' : self.id,
+                'code':'MILT',
+                'cost':'7230.0',
+                'govt_add':'56.0',
+                'mrkt': '78.0'
+            }   ),
+            (Command.create({
+                'name':'grains',
+                'crop_type':'winter',
+                'farm_id' : self.id,
+                'code':'GRAN',
+                'cost':'8600.0',
+                'govt_add':'56.0',
+                'mrkt': '78.0'
+            })   )],
+            
+        } 
+        new_crop = self.write(new_rec)
+        print("O2M field created",new_crop)
+
+    def update_o2m_rec(self):
+        
+        """
+        This method is used to update existing O2M records .
+        ----------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {
+            'crop_ids':[
+                (1,64,{'name':'chana'}),
+                (Command.update(65,{'name':'bhinda'}))],
+            
+        } 
+        new_crop = self.write(new_rec)
+        print("O2M UPDATED",new_crop)  
+  
