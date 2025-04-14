@@ -224,3 +224,22 @@ class MyFarm(models.Model):
         farm_data = self.env['farm.model'].search([])
         fill_rec = farm_data.filtered(lambda rec: not rec.farmer_id and rec.farm_type)
         print(fill_rec) 
+
+    def mult_rec_in_list(self):
+        """
+        This method is used to filter the record using a single list.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        all_rec = [(rec.code,rec.farm_type,rec.farmer_id.name) for rec in self] 
+        print(all_rec)
+    
+    
+    def cond_in_list(self):
+        """
+        This method is used to filter the record using condition in a single list.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        concat_list = [rec.code+'-'+rec.farm_type for rec in self] 
+        print(concat_list)    

@@ -30,6 +30,8 @@
                 <button name='filt_data_lambda' string='filter (lambda)' type ='object'/>
                 <button name='filt_data_opp' string='filter (opp)' type ='object'/>
                 <button name='filt_mult_cond' string='filter (mult cond.)' type ='object'/>
+                <button name='mult_rec_in_list' string='multi recs' type ='object'/>
+                <button name='cond_in_list' string='return' type ='object'/>
 
                 
 
