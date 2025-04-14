@@ -167,3 +167,20 @@ class MyFarm(models.Model):
         crop_names = crop_obj.mapped('name')
         print(crop_names)        
 
+    def fetch_meta_data_one(self):
+        """
+        This method is used to fetch the metadata of one record.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        crop_obj = self.env['farm.crop'].search([('id','=',4)])
+        print(crop_obj.get_metadata())  
+
+    def fetch_meta_data_mul(self):
+        """
+        This method is used to fetch the metadata of multiple record.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        crop_obj = self.env['farm.crop'].search([])
+        print(crop_obj.get_metadata())  
