@@ -42,6 +42,7 @@
                 <button name='update_o2m_rec' string='update(crops)' type ='object'/>
                 <button name='delete_o2m_rec' string='delete(crops)' type ='object'/>
                 <button name='unlink_o2m_rec' string='unlink(crops)' type ='object'/>
+                <button name='link_o2m_rec' string='link(crops)' type ='object'/>
 
                 
 

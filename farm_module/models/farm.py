@@ -424,3 +424,20 @@ class MyFarm(models.Model):
         new_crop = self.write(new_rec)
         print("O2M UPDATED",new_crop)  
 
+    def link_o2m_rec(self):
+        
+        """
+        This method is used to add existing O2M records.
+        ------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {
+            'crop_ids':[
+                (4,1),
+                (Command.link(2))],
+            
+        } 
+        new_crop = self.write(new_rec)
+        print("O2M UPDATED",new_crop)  
+
