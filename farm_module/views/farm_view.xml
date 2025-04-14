@@ -26,6 +26,8 @@
                 <button name='fetch_mul_ens_one' string='ensure (mul)' type ='object'/>
                 <button name='fetch_meta_data_one' string='metadata' type ='object'/>
                 <button name='fetch_meta_data_mul' string='metadata (mul)' type ='object'/>
+                <button name='fill_data' string='fillter' type ='object'/>
+                <button name='fill_data_lambda' string='fillter (lambda)' type ='object'/>
 
                 
 

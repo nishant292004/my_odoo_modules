@@ -184,3 +184,23 @@ class MyFarm(models.Model):
         """
         crop_obj = self.env['farm.crop'].search([])
         print(crop_obj.get_metadata())  
+
+    def fill_data(self):
+        """
+        This method is used to filter the record.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        farm_data = self.env['farm.model'].search([])
+        fill_rec = farm_data.filtered('farmer_id')
+        print(fill_rec)
+
+    def fill_data_lambda(self):
+        """
+        This method is used to filter the record using lambda.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        farm_data = self.env['farm.model'].search([])
+        fill_rec = farm_data.filtered(lambda rec:rec.farmer_id)
+        print(fill_rec)     
