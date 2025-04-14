@@ -441,3 +441,20 @@ class MyFarm(models.Model):
         new_crop = self.write(new_rec)
         print("O2M UPDATED",new_crop)  
 
+    def clear_o2m_rec(self):
+        
+        """
+        This method is used to clear existing O2M records.
+        ------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {
+            'crop_ids':[
+                (5,),
+                (Command.clear())],
+            
+        } 
+        new_crop = self.write(new_rec)
+        print("O2M UPDATED",new_crop)  
+
