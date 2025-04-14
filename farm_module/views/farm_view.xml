@@ -31,10 +31,13 @@
                 <button name='filt_data_opp' string='filter (opp)' type ='object'/>
                 <button name='filt_mult_cond' string='filter (mult cond.)' type ='object'/>
                 <button name='mult_rec_in_list' string='multi recs' type ='object'/> -->
-                <button name='cond_in_list' string='return' type ='object'/>
+                <!-- <button name='cond_in_list' string='return' type ='object'/>
                 <button name='sorted_rec' string='sort' type ='object'/>
-                <button name='sorted_rec_lambda' string='sort(lambda)' type ='object'/>
+                <button name='sorted_rec_lambda' string='sort(lambda)' type ='object'/> -->
                 <button name='sorted_rec_lambda_rev' string='rev sort' type ='object'/>
+                <button name='create_rec_O2M' string='create (crops)' type ='object'/>
+                <button name='create_rec_M2M' string='create (machines)' type ='object'/>
+                <button name='create_rec_set_M2M' string='set (machines)' type ='object'/>
 
                 
 

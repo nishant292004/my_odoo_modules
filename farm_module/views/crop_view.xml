@@ -18,6 +18,7 @@
                         <button name='print_from_xml_id' string='data of id' type ='object'/>                 -->
                         <button name='print_rec_add_data' string='additional Data' type ='object'/>                
                         <button name='create_rec' string='create rec' type ='object'/>                
+                        <button name='create_rec_diff' string='create rec (diff)' type ='object'/>                
                     </header>
                     <group>
                         <field name='name'/>

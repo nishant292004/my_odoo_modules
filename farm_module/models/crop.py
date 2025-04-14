@@ -151,3 +151,24 @@ class FarmCrop(models.Model):
          
         new_crop = self.create(new_rec)
         print("Record Created",new_crop)
+
+    def create_rec_diff(self):
+        """
+        This method is used to create record in another model using create method
+        ---------------------------------------------------------
+        @params self: Object pointer
+
+        """
+
+        farmer_obj = self.env['farm.farmer']
+
+        new_rec =  {
+            'name':'Shailesh Chaudhari',
+            'age':48,
+            'gender' : 'male',
+            'mo_no':'9909699774',
+        }   
+        
+         
+        new_farmer = farmer_obj.create(new_rec)
+        print("Record Created",new_farmer)    

@@ -1,4 +1,4 @@
-from odoo import models,fields,api
+from odoo import models,fields,api,Command
 
 class MyFarm(models.Model):
     
@@ -273,3 +273,70 @@ class MyFarm(models.Model):
         obj = self.env['farm.model'].search([])
         sort_recs = obj.sorted(lambda rec:rec.farm_size,reverse=True)   
         print(sort_recs)      
+
+    def create_rec_O2M(self):
+        
+        """
+        This method is used to create O2M records .
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {'code':'DUMY',
+            'crop_ids':[(0,0,{
+                'name':'millets',
+                'crop_type':'monsoon',
+                'farm_id' : self.id,
+                'code':'MILT',
+                'cost':'7230.0',
+                'govt_add':'56.0',
+                'mrkt': '78.0'
+            }   ),
+            (Command.create({
+                'name':'grains',
+                'crop_type':'winter',
+                'farm_id' : self.id,
+                'code':'GRAN',
+                'cost':'8600.0',
+                'govt_add':'56.0',
+                'mrkt': '78.0'
+            })   )],
+            
+        } 
+        new_crop = self.create(new_rec)
+        print("O2M field created",new_crop)
+
+    def create_rec_M2M(self):
+        
+        """
+        This method is used to create M 2M records .
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {'code':'DUMY',
+            'machine_ids':[
+                (4,2),
+                (4,5),
+                (Command.link(6))],
+            
+        } 
+        new_crop = self.create(new_rec)
+        print("M2M field created",new_crop)
+
+    def create_rec_set_M2M(self):
+        
+        """
+        This method is used to create M2M records and remove existing one .
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {'code':'DUMY',
+            'machine_ids':[
+                (6,0,[1,4]),
+                (Command.set([7]))],
+            
+        } 
+        new_crop = self.create(new_rec)
+        print("M2M field created",new_crop)    
