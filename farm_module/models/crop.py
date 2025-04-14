@@ -113,4 +113,16 @@ class FarmCrop(models.Model):
         menu_xml_id = self.env.ref('farm_module.menu_crop_info')   
         print("MENU",menu_xml_id) 
 
-    def       
+    def print_rec_add_data(self):
+
+        grp_data = self.env.ref('farm_module.grp_farm_admin')
+        print(grp_data)
+
+        access_data = self.env.ref('farm_module.access_farm_farmer')
+        print(access_data)
+
+        user_data = self.env.ref('base.user_admin')
+        print(user_data)
+
+        comp_data = self.env.ref('base.main_company')
+        print(comp_data)      

@@ -89,6 +89,9 @@ class MyFarm(models.Model):
 
         for price in self:
             price.mrkt_total = sum(price.crop_ids.mapped('mrkt_price'))
-       
+
+
+    # what is self ?
+    # self is a recordset of the current model.which contains the model name and ids of the records.   
 
    
