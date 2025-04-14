@@ -8,16 +8,26 @@
         <field name='arch' type='xml'>
             <form>
                 <sheet>
+                    <header>
+                        <button name='print_records' string='update' type ='object'/>                
+                        <button name='print_dict_records' string='print in dict' type ='object'/>                
+                        <button name='print_dict_records_all' string='print all records' type ='object'/>                
+                        <button name='del_records' string='delete' type ='object'/>                
+                        <button name='print_data' string='print data' type ='object'/>                
+                        <button name='list_modl' string='model data' type ='object'/>                
+                        <button name='print_from_xml_id' string='data of id' type ='object'/>                
+                    </header>
                     <group>
                         <field name='name'/>
                         <field name='crop_type'/>
+                        <field name='time'/>
                         <field name='code'/>
-                        <field name='farm_ids'/>
-                        <field name='cost'/>
-                        <field name='govt_add'/>
-                        <field name='mrkt'/>
-                        <field name='govt_price'/>
-                        <field name='mrkt_price'/>
+                        <field name='farm_id'/>
+                        <field name='cost' invisible="not farm_id"/>
+                        <field name='govt_add' readonly="not name"/>
+                        <field name='mrkt' readonly="not name"/>
+                        <field name='govt_price' />
+                        <field name='mrkt_price' />
                     </group>
                 </sheet>
             </form>
@@ -45,7 +55,11 @@
             <search>
                 <field name='name'/>
                 <field name='crop_type'/>
-                    <field name='code'/>
+                <field name='code'/>
+
+                <filter name="fill_crop_type_mon" string="Monsoon" domain="[('crop_type','=','monsoon')]"/>
+                <filter name="fill_months" string="Months" domain="[]" context="{'group_by':'time'}"/>
+
             </search>
         </field>
     </record>

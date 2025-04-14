@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <odoo>
+    <record id="action_farm_by_machines" model="ir.actions.act_window">
+        <field name="name">Farms</field>
+        <field name="res_model">farm.model</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_machine_ids':active_id}</field>
+    </record>
 
     <record id='views_machines_form' model='ir.ui.view'>
         <field name='name'>view.machines.form</field>
@@ -8,6 +14,12 @@
         <field name='arch' type='xml'>
             <form>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    
+                        <button class="oe_stat_button" name="%(action_farm_by_machines)d"
+                               string="Farms" type="action" icon="fa-user">
+                        </button>
+                    </div>
                     <group>
                         <field name='name' />
                         <field name='code' />
@@ -17,6 +29,7 @@
                         <field name='reference'/>
                         <field name='doc' filename='file_name'/>
                         <field name='photo' widget='image' class='oe-avatar'/>
+                        <field name='extra_info'/>
                     </group>
                 </sheet>
             </form>
@@ -51,7 +64,14 @@
         <field name="res_model">farm.machines</field>
         <field name="view_mode">list,form</field>
     </record>
+    <record id="action_machines_tractor" model="ir.actions.act_window">
+        <field name="name">Tractors</field>
+        <field name="res_model">farm.machines</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('name','like','tractor')]</field>
+    </record>
 
     <menuitem id="menu_machines_info" action="action_machines" parent="menu_farm_app" sequence='15' />
+    <menuitem id="menu_machines_tract_info" action="action_machines_tractor" parent="menu_config"/>
 
 </odoo>

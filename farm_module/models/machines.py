@@ -13,7 +13,5 @@ class FarmMachines(models.Model):
     file_name = fields.Char('File Name')
     doc = fields.Binary('Machine Specification')
     photo = fields.Image('Image')
-
-
-
+    extra_info =fields.Html('Additional Information')
     

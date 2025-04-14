@@ -2,38 +2,71 @@
 
 <odoo>
 
+    <record id="action_farm_by_farmer" model="ir.actions.act_window">
+        <field name="name">Farmer</field>
+        <field name="res_model">farm.farmer</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_farm_id':active_id}</field>
+    </record>
+
     <record id='views_farm_form' model='ir.ui.view'>
         <field name='name'>view.farm.form</field>
         <field name='model'>farm.model</field>
         <field name='arch' type='xml'>
             <form>
+                
                 <header>
+                <button name='%(action_farmer)d' string='Related' type ='action'/>
+
+                
+
+                <!-- <button name='create_records' string='create' type ='object'/>
+                <button name='search_rec' string='search' type ='object'/>
+                <button name='fetch_records' string='fetch' type ='object'/>
+                <button name='fetch_mul_records' string='fetch multi' type ='object'/>
+                <button name='copy_rec' string='copy' type ='object'/> -->
                     <field name="state" widget="statusbar" options="{'clickable':1}" />
                 </header>
+
                 <sheet>
-                    <group colspan="4">
+                    <div class="oe_button_box" name="button_box">
+                    
+                        <button class="oe_stat_button" name="%(action_farm_by_farmer)d"
+                               string="Farmer" type="action" icon="fa-user">
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Active" bg_color="text-bg-info"
+                        invisible="not active" />
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-warning"
+                        invisible="active" />
+                   
+                        <group colspan="4">
+                            
+                            <group>
+                            <separator string='Farm Code' />
 
-                        <separator string='Farm Code' />
+                            <field name='code' help="select the code of farm." />
 
-                        <field name='code' help="select the code of farm." />
+                            <separator string='Basic Information' />
 
-                        <separator string='Basic Information' />
-
-                        <field name='farmer_name' placeholder="Farmer Name"
-                            help="The farmer's name." />
-                        <field name='farm_size' help="the size of farm in hectares." />
-                        <field name='is_organic' help="check if the farming is organic." />
-                        <field name='est_date' help="the date when the farm is established." />
-                        <field name='last_inspection'
-                            help="the date when the last inspection was held." />
-                        <field name='farm_type' help="select the type of farm." />
-                        <field name='active' invisible="1" />
-                        <field name='password' password="." />
-                        <field name='email' widget='email' />
-                        <field name='sequence' />
-                        <field name='priority' widget='priority' />
-                        <field name='harv_type' widget='radio' />
-                    </group>
+                            <field name='farmer_id' placeholder="Farmer Name"
+                                help="The farmer's name." />
+                            <field name='farm_size' help="the size of farm in hectares." />
+                            <field name='is_organic' help="check if the farming is organic." />
+                            <field name='est_date' help="the date when the farm is established." />
+                            <field name='last_inspection'
+                                help="the date when the last inspection was held." />
+                            </group>
+                            <group>
+                            <field name='farm_type' help="select the type of farm." />
+                            <field name='active' invisible="1" />
+                            <field name='password' password="." />
+                            <field name='email' widget='email' /> 
+                            <field name='sequence' />
+                            <field name='priority' widget='priority' />
+                            <field name='harv_type' widget='radio' />
+                            </group>
+                        </group>
 
                     <separator string='Additional Information' />
                     <notebook>
@@ -42,22 +75,31 @@
                                 help="Give the small description about farm." />
                         </page>
                         <page name="pq_crop" string="Crop Production">
-                            <field name='crop_id' />
+                            <field name='crop_ids' />
                             <group>
-                            <field name='govt_total' />
-                            <field name='mrkt_total' />
+                                <field name='govt_total' />
+                                <field name='mrkt_total' />
                             </group>
                         </page>
-                        <page name="pq_hierarchy" string="Farm Hierarchy">
+                        <page name="pq_bool" string="Check Hierarchy">
                             <group>
-                            <field name='parent_id' />
-                            <separator string='Child Farm'/>
-                            <field name="child_ids"/>
+                            <field name='is_hierarchy' />
                             </group>
+                        </page>
+                        <page name="pq_hierarchy" string="Farm Hierarchy" invisible="not is_hierarchy">
+                            <group>
+                            <field name='parent_id' domain="[('id','!=',id),('code','like','%1')]"/>
+                                <separator string='Child Farm' />
+                                <field name="child_ids" />
+                            </group>
+                        </page>
+                        <page name="pq_machines" string="Machines">
+                            <field name='machine_ids' domain="[]"/>
                         </page>
                     </notebook>
 
                 </sheet>
+
 
             </form>
         </field>
@@ -67,15 +109,15 @@
         <field name="name">view.farm.tree</field>
         <field name="model">farm.model</field>
         <field name="arch" type="xml">
-            <list>
-                <field name='sequence' widget='handle'/>
+            <list>            
+                <field name='sequence' widget='handle' />
                 <field name='code' />
+                <field name='farmer_id' required='1' />
                 <field name='farm_size' required='1' />
                 <field name='is_organic' />
                 <field name='est_date' required='1' />
                 <field name='last_inspection' />
                 <field name='farm_type' />
-                <field name='farmer_name' required='1' />
             </list>
         </field>
     </record>
@@ -86,12 +128,15 @@
         <field name="arch" type="xml">
             <search>
                 <field name='code' />
-                <field name='farmer_name' />
+                <field name='farmer_id' />
                 <field name='farm_size' />
-                <field name='is_organic' />
+                <field name='is_organic' />                                          
                 <field name='est_date' />
                 <field name='last_inspection' />
                 <field name='farm_type' />
+                <filter name= "gro_org" string="Organic" domain="[]" context="{'group_by':'is_organic'}" />
+                <filter name= "grp_date" string="Establishment Date" domain="[]" context="{'group_by':'est_date'}" />
+                <filter name= "fil_date" date="est_date" />
             </search>
         </field>
     </record>
@@ -100,9 +145,19 @@
         <field name="name">Farm</field>
         <field name="res_model">farm.model</field>
         <field name="view_mode">list,form</field>
+        
+    </record>
+
+    <record id="action_farm_large" model="ir.actions.act_window">
+        <field name="name">Large Farm</field>
+        <field name="res_model">farm.model</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('farm_type','=','large')]</field>
     </record>
 
     <menuitem id="menu_farm_app" name='Farm Model' />
+    <menuitem id="menu_config" name="Machine Config" parent="menu_farm_app" sequence='20' />
     <menuitem id="menu_farm_info" action="action_farm" parent="menu_farm_app" sequence='1' />
+    <menuitem id="menu_farm_info_large" action="action_farm_large" parent="menu_config" />
 
-</odoo>
+</odoo>                                

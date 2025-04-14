@@ -5,27 +5,31 @@ class MyFarm(models.Model):
     _name = 'farm.model'
     _description = 'Farm Model'
     _rec_name = 'code'
-    _order = 'farmer_name asc'
+    _parent_name = 'parent_id'
+    _parent_store = True
+    _order = 'farmer_id asc'
+    
+    farmer_id = fields.Many2one('farm.farmer',string="Farmer's Name")
 
-    farmer_name = fields.Char("Farmer's Name", required=True)
-
-    farm_size = fields.Float("Area Of Farm (Hectares)",required=True, digits=(10,3) , aggregator='avg')
+    farm_size = fields.Float("Area Of Farm (Hectares)", digits=(10,3) , aggregator='avg')
 
     is_organic = fields.Boolean('Is Organic ?')
 
     description = fields.Text('Description')
 
-    est_date = fields.Date('Establishment Date',required=True , index=True, default = fields.Date.context_today)
+    est_date = fields.Date('Establishment Date' , index=True, default = fields.Date.context_today)
 
-    last_inspection = fields.Datetime('Last Inspection Date',required=True)
+    last_inspection = fields.Datetime('Last Inspection Date')
 
-    farm_type = fields.Selection([('small','Small'),('medium','Medium'),('large','Large')],string='Farm Type',required=True)
+    farm_type = fields.Selection([('small','Small'),('medium','Medium'),('large','Large')],string='Farm Type')
 
     code = fields.Char(string='Farm Code', size=4)
 
     active = fields.Boolean(string='Active' , default = True, invisible=True)
 
     password = fields.Char('Password')
+
+    is_hierarchy = fields.Boolean(string="Is In Hierarchy",default=False)
 
     email = fields.Char('Email')
 
@@ -36,11 +40,12 @@ class MyFarm(models.Model):
     ('fruit', 'Fruit Farm'),
     ('vegetable', 'Vegetable Farm'),
     ('grain', 'Grain Farm')
-    ], string='Harvest Type', required=True)
+    ], string='Harvest Type')
 
-    crop_id = fields.One2many(comodel_name='farm.crop',inverse_name='farm_ids',string='Crop',ondelete='cascade')
+    crop_ids = fields.One2many(comodel_name='farm.crop',inverse_name='farm_id',string='Crop',ondelete='cascade')
     
     govt_total = fields.Float(compute='_calc_govt_price', string='Total Government Price (For All the Crops)', store=True)
+    
     mrkt_total = fields.Float(compute='_calc_mrkt_price', string='Total Market Price (For All the Crops)', store=True)
 
     state = fields.Selection([('planting','Planting'),
@@ -49,18 +54,18 @@ class MyFarm(models.Model):
                               ('stored','Stored'),
                               ('selling','Selling'),
                               ], default='planting')
+                              
     sequence = fields.Integer('Sequence')
 
-    parent_id = fields.Many2one('farm.model','Parent Farm')
+    parent_id = fields.Many2one('farm.model','Parent Farm',index=True, domain=[('is_organic','=','true')])
 
     child_ids = fields.One2many('farm.model','parent_id','Child Farms')
 
-    parent_path = fields.Char('Parent Path', index=True)
+    parent_path = fields.Char('Parent Path',index=True)
 
+    machine_ids = fields.Many2many('farm.machines',string='Machines',domain=[('name','ilike','c')])
 
-
-
-    @api.depends('crop_id')
+    @api.depends('crop_ids')
 
     def _calc_govt_price(self):
 
@@ -71,9 +76,9 @@ class MyFarm(models.Model):
         """
 
         for price in self:
-            price.govt_total = sum(price.crop_id.mapped('govt_price'))
+            price.govt_total = sum(price.crop_ids.mapped('govt_price'))
 
-    @api.depends('crop_id')
+    @api.depends('crop_ids')
 
     def _calc_mrkt_price(self):
         """
@@ -83,5 +88,7 @@ class MyFarm(models.Model):
         """
 
         for price in self:
-            price.mrkt_total = sum(price.crop_id.mapped('mrkt_price'))
+            price.mrkt_total = sum(price.crop_ids.mapped('mrkt_price'))
+       
 
+   
