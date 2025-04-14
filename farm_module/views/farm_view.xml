@@ -41,6 +41,7 @@
                 <button name='write_rec_O2M' string='write' type ='object'/> -->
                 <button name='update_o2m_rec' string='update(crops)' type ='object'/>
                 <button name='delete_o2m_rec' string='delete(crops)' type ='object'/>
+                <button name='unlink_o2m_rec' string='unlink(crops)' type ='object'/>
 
                 
 

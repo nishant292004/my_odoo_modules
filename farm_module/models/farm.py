@@ -407,3 +407,20 @@ class MyFarm(models.Model):
         new_crop = self.write(new_rec)
         print("O2M UPDATED",new_crop)  
 
+    def unlink_o2m_rec(self):
+        
+        """
+        This method is used to delete existing O2M records but not from database .
+        -------------------------------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {
+            'crop_ids':[
+                (3,1),
+                (Command.unlink(2))],
+            
+        } 
+        new_crop = self.write(new_rec)
+        print("O2M UPDATED",new_crop)  
+
