@@ -16,6 +16,8 @@
             <form>
                 <header>
                     <button name='print_name' string='print' type ='object'/>                
+                    <button name='check_rec_set' string='check rec' type ='object'/>                
+                    <button name='check_subset' string='check subset' type ='object'/>                
                     <!-- <button name='%(action_farm)d' string='Related' type ='object'/> -->
                 </header>
                 <sheet>

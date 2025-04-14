@@ -31,3 +31,32 @@ class Farmer(models.Model):
 
         for farmer in self:
             farmer.no_of_farms = farm_obj.search_count([('farmer_id','=',farmer.id)])
+
+    def check_rec_set(self):
+        """
+        This method is used to check the record is in the set of records.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        name_obj = self.filtered(lambda rec:rec.name=="Nishant Suthar")
+        male_obj = self.filtered(lambda rec:rec.gender=="male")
+
+        res = name_obj in male_obj
+        print("RESULT",res)
+
+    def check_subset(self):
+        """
+        This method is used to check the record is the subset of other records.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        cr_obj = self.env['farm.farmer'].search([])
+        name_obj = cr_obj.filtered(lambda rec:rec.name=='Nishant Suthar')
+        print(name_obj.ids)
+        male_obj = cr_obj.filtered(lambda rec:rec.gender=='male')
+        print(male_obj.ids)
+
+        res_1 = name_obj > male_obj
+        res_2 = name_obj < male_obj
+        print("RESULT-1",res_1)
+        print("RESULT-2",res_2)
