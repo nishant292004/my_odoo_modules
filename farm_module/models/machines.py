@@ -226,3 +226,13 @@ class FarmMachines(models.Model):
         res_recs = all_recs.read()
         print('ALL RECORDS', res_recs)
         
+    def search_user_id(self):
+        """
+        This is a method used to search the id of user who created the record
+        ---------------------------------------------------------------------
+        @param self: object pointer
+        """
+        for rec in self:
+
+            user_id = rec.create_uid
+            print(user_id)
