@@ -98,3 +98,13 @@ class FarmMachines(models.Model):
 
         copy_rec =self.copy()
         print("COPY REC",copy_rec)
+
+    def dupl_rec_multi(self):
+        """
+        This is a method used to duplicate multiple records
+        -------------------------------------------------------------
+        @param self: object pointer
+        """
+        multi_recs = self.browse([4,5,6])
+        copy_rec =multi_recs.copy()
+        print("COPY REC",copy_rec)
