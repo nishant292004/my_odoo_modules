@@ -105,3 +105,15 @@ class Farmer(models.Model):
 
         diff_res = male_obj - name_obj
         print("DIFFERENCE RESULT",diff_res)
+
+    def update_user_id(self):
+        """
+        This method is used to update the user id with current logged user
+        ------------------------------------------------------------------
+        @param self: object pointer
+        """    
+        for rec in self:
+            print("BEFORE",rec.user_id)
+            rec.user_id = self.env.user
+            print("AFTER",rec.user_id)
+

@@ -21,6 +21,7 @@
                     <button name='union_rec' string='union' type ='object'/>                
                     <button name='inersec_rec' string='intersection' type ='object'/>                
                     <button name='diff_rec' string='difference' type ='object'/>                
+                    <button name='update_user_id' string='update (user id)' type ='object'/>                
                     <!-- <button name='%(action_farm)d' string='Related' type ='object'/> -->
                 </header>
                 <sheet>
