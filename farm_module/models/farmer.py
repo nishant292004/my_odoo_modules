@@ -7,7 +7,7 @@ class Farmer(models.Model):
     name = fields.Char("Farmer's Name")
     age = fields.Integer(string="Age",aggregator='max')
     gender = fields.Selection(selection=[('male', 'Male'), ('female', 'Female')], string='Gender')
-    active = fields.Boolean(string='Active' , default = True, invisible=True)
+    active = fields.Boolean(string='Active' , default = True)
     mo_no = fields.Char("Mobile no.")
     no_of_farms = fields.Integer(compute="_calc_no_of_farms")
     farm_id = fields.Many2one(comodel_name='farm.model', string='Farm Code', ondelete="restrict")
@@ -116,4 +116,16 @@ class Farmer(models.Model):
             print("BEFORE",rec.user_id)
             rec.user_id = self.env.user
             print("AFTER",rec.user_id)
+
+    def toggle_active(self):
+        """
+        This method is used to toggle the active field
+        ----------------------------------------------
+        @param self: object pointer
+        """    
+
+        for rec in self:
+            rec.active = not rec.active
+         
+           
 

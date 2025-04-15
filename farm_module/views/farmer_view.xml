@@ -22,6 +22,7 @@
                     <button name='inersec_rec' string='intersection' type ='object'/>                
                     <button name='diff_rec' string='difference' type ='object'/>                
                     <button name='update_user_id' string='update (user id)' type ='object'/>                
+                    <button name='toggle_active' string='active(toggle)' type ='object'/>                
                     <!-- <button name='%(action_farm)d' string='Related' type ='object'/> -->
                 </header>
                 <sheet>
@@ -37,6 +38,7 @@
                         <field name='gender'/>
                         <field name='age'/>
                         <field name='user_id'/>
+                        <field name='active'/>
                         <field name='comp_id'/>
                         <field name='lang_id'/>
                         <field name='currency_id'/>
