@@ -226,3 +226,14 @@ class FarmCrop(models.Model):
             if crop.govt_add == 0.0:
                 crop.govt_add = 35.0
                 crop.govt_price = crop.cost + (crop.cost * crop.govt_add)/100
+
+    def read_group_rec(self):
+        """
+        This method is used to read the group of records.
+        -------------------------------------------------
+        @param self: object pointer / recordset
+        """
+
+        res = self.read_group([], fields=['cost'], groupby=['crop_type'])
+        print("SINGLE GROUP", res)
+

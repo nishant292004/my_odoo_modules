@@ -21,6 +21,7 @@
                         <button name='create_rec_diff' string='create rec (diff)' type ='object'/>                
                         <button name='update_rec' string='update' type ='object'/>                
                         <button name='update_rec_diff' string='update (diff)' type ='object'/>                
+                        <button name='read_group_rec' string='Read Group' type ='object'/>                
                     </header>
                     <group>
                         <field name='name'/>
