@@ -169,4 +169,14 @@ class FarmMachines(models.Model):
         @param self: object pointer
         """
         all_recs = self.search([('description','=',False)])
-        print("ALL RECORDS",all_recs)                  
+        print("ALL RECORDS",all_recs)
+
+    def search_spec_rec_diff(self):
+        """
+        this method is used to fetch the specific record for another model 
+        ------------------------------------------------------------------
+        @param self: object pointer
+        """
+        farm_obj = self.env['farm.model']
+        all_recs = farm_obj.search([('farm_type','=','large')])
+        print("ALL RECORDS OF FARM MODEL",all_recs)                                        
