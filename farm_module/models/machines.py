@@ -159,7 +159,7 @@ class FarmMachines(models.Model):
         -----------------------------------------------------------------------------
         @param self: object pointer
         """
-        all_recs = self.search([])
+        all_recs = self.search(domain=[],order='name')
         print("ALL RECORDS",all_recs)                  
 
     def search_spec_rec(self):
