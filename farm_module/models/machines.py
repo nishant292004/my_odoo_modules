@@ -88,3 +88,13 @@ class FarmMachines(models.Model):
         multi_rec = crop_obj.browse([2,4,7])
         read_rec = multi_rec.read()
         print("READ RECORDS",read_rec)  
+
+    def dupl_rec(self):
+        """
+        This is a button's method used to demonstrate copy() method
+        -------------------------------------------------------------
+        @param self: object pointer
+        """
+
+        copy_rec =self.copy()
+        print("COPY REC",copy_rec)

@@ -502,5 +502,16 @@ class MyFarm(models.Model):
         @param self: object pointer
         """  
           
-        read_machines = self.read(['farmer_id','crop_ids','machine_ids','parent_id'])
-        print("READ RECORDS",read_machines)  
+        read_curr = self.read(['farmer_id','crop_ids','machine_ids','parent_id'])
+        print("READ RECORDS",read_curr)  
+
+    def read_spec_id(self):
+        
+        """
+        This method is used to read M2O records id.
+        ----------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        read_id = self.read(['farmer_id'])
+        print("READ RECORDS",read_id)  

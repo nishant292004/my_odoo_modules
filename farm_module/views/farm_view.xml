@@ -47,6 +47,7 @@
                 <button name='change_o2m_rec' string='change(crops)' type ='object'/>
                 <button name='update_o2m_rec_inv' string='update crop (inverse)' type ='object'/>
                 <button name='read_spec_rec' string='read' type ='object'/>
+                <button name='read_spec_id' string='read(id)' type ='object'/>
 
                 
 

@@ -14,13 +14,14 @@
         <field name='arch' type='xml'>
             <form>
                 <header>
-                    <button name='browse_rec' string='browse(one)' type ='object'/>
+                    <!-- <button name='browse_rec' string='browse(one)' type ='object'/>
                     <button name='browse_rec_multi' string='browse(multiple)' type ='object'/>
                     <button name='browse_rec_one_diff' string='diff browse(one)' type ='object'/>
                     <button name='browse_rec_multi_diff' string='diff browse(multiple)' type ='object'/>
                     <button name='read_rec' string='read' type ='object'/>
                     <button name='read_spec_rec' string='read(name,code)' type ='object'/>
-                    <button name='read_diff_rec' string='read(diff)' type ='object'/>
+                    <button name='read_diff_rec' string='read(diff)' type ='object'/> -->
+                    <button name='dupl_rec' string='copy' type ='object'/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
