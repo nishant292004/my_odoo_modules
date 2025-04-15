@@ -538,3 +538,190 @@ class MyFarm(models.Model):
             ans_list.append(temp_list)        
         
         print("READ RECORDS",ans_list)  
+
+
+# APIs (decorators) 
+
+    #1. @api.depends(<fields-name>)
+
+    # api.depends(<fields-name>) decorator used when we want to create a compute field and want to change the fields value based on another fields value then we use this decorator.
+
+    # example
+
+    # @api.depends('cost','govt_add')
+
+    # def _calc_govt_price(self):
+
+    #     """
+    #     This method is used to calculate the total govt price based on cost and govt profit margin.
+    #     -------------------------------------------------------------------------------------------
+    #     @param self: object pointer
+    #     """
+
+    #     for price in self:
+    #         price.govt_price = price.cost + (price.cost * price.govt_add)/100
+
+    # 2. @api.model
+
+    # the api.model is used when we are working with blank recordset and the fields value does not depended in any other fields value.
+
+    # example
+
+    # api.model
+    # def _calc_no_of_farms(self):
+    #     """
+    #     This method is used to count the number of records.
+    #     ---------------------------------------------------------------------
+    #     @param self: object pointer
+    #     """
+
+    #     farm_obj = self.env['farm.model']
+
+    #     for farmer in self:
+    #         farmer.no_of_farms = farm_obj.search_count([('farmer_id','=',farmer.id)])
+
+
+    # this is the example of search_count() method which can be called using api.model
+
+    
+    # 3. @api.model_create_single
+
+    # the api.model_create_single decorator is used when the method creates a single record using create() method 
+
+    # example
+
+    # @api.model_create_single
+
+    # def create_rec_O2M(self):
+        
+    #     """
+    #     This method is used to create O2M records .
+    #     -------------------------------------------------------------------------------------------
+    #     @param self: object pointer
+    #     """  
+          
+    #     new_rec =  {'code':'DUMY',
+    #         'crop_ids':[(0,0,{
+    #             'name':'millets',
+    #             'crop_type':'monsoon',
+    #             'farm_id' : self.id,
+    #             'code':'MILT',
+    #             'cost':'7230.0',
+    #             'govt_add':'56.0',
+    #             'mrkt': '78.0'
+    #         }   ),
+    #         ],
+            
+    #     } 
+    #     new_crop = self.create(new_rec)
+    #     print("O2M field created",new_crop)
+
+    # 4. @api.model_create_multi
+
+    # the @api.model_create_multi is used when the creates the multiple records using the create method it is also derived from the @api.model
+
+    # example
+
+    # @api.model_create_multi
+    # def write_rec_O2M(self):
+        
+    #     """
+    #     This method is used to write O2M records .
+    #     -------------------------------------------------------------------------------------------
+    #     @param self: object pointer
+    #     """  
+          
+    #     new_rec =  {'code':'DUMY',
+    #         'crop_ids':[(0,0,{
+    #             'name':'millets',
+    #             'crop_type':'monsoon',
+    #             'farm_id' : self.id,
+    #             'code':'MILT',
+    #             'cost':'7230.0',
+    #             'govt_add':'56.0',
+    #             'mrkt': '78.0'
+    #         }   ),
+    #         (Command.create({
+    #             'name':'grains',
+    #             'crop_type':'winter',
+    #             'farm_id' : self.id,
+    #             'code':'GRAN',
+    #             'cost':'8600.0',
+    #             'govt_add':'56.0',
+    #             'mrkt': '78.0'
+    #         })   )],
+            
+    #     } 
+    #     new_crop = self.write(new_rec)
+    #     print("O2M field created",new_crop)
+
+    # 5. @api.onchange(<fields-name>)
+
+    # the @api.onchange(<fields-name>) is used when when we want to change the value of the field when the another field is get changed .
+    # for example when the one field's value get changed then we want to update the value of another field.
+
+    # example
+
+    # @api.onchange('farm_size')
+    # def _change_val(self):
+    #     """
+    #     This method is will update the fields value 
+    #     -------------------------------------------
+    #     @params self: object pointer 
+    #     """
+
+    #     for rec in self:
+    #         if rec.farm_size < 20:
+    #             rec.farm_type = 'medium'
+
+
+    # 6. @api.constrains(<fields-name>)
+
+    #  the @api.constrains(<fields-name>) decorator is used to add the object consrtains in the model. when we want to use user defined constrains then we use this api.
+
+    # example
+
+    # @api.constrains('farm_size')
+    # def _check_age(self):
+    #     """
+    #     This method is will check the constrain condition 
+    #      ------------------------------------------------
+    #      @params self: object pointer 
+    #     """
+    #     for rec in self:
+    #          if rec.farm_size == 0:
+    #             raise ValidationError("The Farm size should not be zero")
+
+    
+    # 7. @api.readonly
+
+    #  the @api.readonly is used when we don't want change the method or record it can not modify the database.
+
+    # example
+
+    # for this we have to use @api.model then we will declare @api.readonly
+
+    # @api.model
+    # @api.readonly
+    # def get_data(self):
+    #     """
+    #     This method is will only read the records 
+    #       -------------------------------------------
+    #       @params self: object pointer 
+    #     """
+    
+    #     print(self.env['farm.model'].search([]))
+
+    # 8. @api.returns(<field-name>)
+
+    # the @api.returns(<field-name>) is used when we want method to return a certain object.this will not affect or change the code quality.
+
+    # 9. @api.private
+
+    # the @api.private is used when we want to make the public method to private.
+
+
+
+
+
+

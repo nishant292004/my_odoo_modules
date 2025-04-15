@@ -126,6 +126,8 @@ class Farmer(models.Model):
 
         for rec in self:
             rec.active = not rec.active
+
+            
          
            
 
