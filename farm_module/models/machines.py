@@ -141,3 +141,14 @@ class FarmMachines(models.Model):
         cur_rec = self.browse([9,10,11])
         cur_rec.unlink()
         print("RECORDS ARE DELETED")    
+
+    def delete_multi_rec_diff(self):
+        """
+        This is a method used to delete the multiple records from the different model
+        -----------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        crop_obj = self.env['farm.crop']
+        cur_rec = crop_obj.browse([64,65])
+        cur_rec.unlink()
+        print("RECORDS ARE DELETED FROM OTHER MODEL")        
