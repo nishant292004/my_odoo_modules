@@ -52,3 +52,15 @@ class FarmMachines(models.Model):
         crop_obj = self.env['farm.crop']
         multi_rec = crop_obj.browse([2,4,7])
         print("MULTIPLE RECORDS", multi_rec)
+
+    def read_rec(self):
+        
+        """
+        This method is used to read records.
+        ----------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        read_machines = self.read()
+        print("READ RECORDS",read_machines)  
+ 
