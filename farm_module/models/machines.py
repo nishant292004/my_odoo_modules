@@ -151,4 +151,13 @@ class FarmMachines(models.Model):
         crop_obj = self.env['farm.crop']
         cur_rec = crop_obj.browse([64,65])
         cur_rec.unlink()
-        print("RECORDS ARE DELETED FROM OTHER MODEL")        
+        print("RECORDS ARE DELETED FROM OTHER MODEL")  
+
+    def search_rec(self):
+        """
+        this method is used to fetch all thee the current model's record
+        -----------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        all_recs = self.search([])
+        print("ALL RECORDS",all_recs)                  

@@ -21,12 +21,13 @@
                     <button name='read_rec' string='read' type ='object'/>
                     <button name='read_spec_rec' string='read(name,code)' type ='object'/>
                     <button name='read_diff_rec' string='read(diff)' type ='object'/> -->
-                    <button name='dupl_rec' string='copy' type ='object'/>
+                    <!-- <button name='dupl_rec' string='copy' type ='object'/>
                     <button name='dupl_rec_multi' string='copy(Multi)' type ='object'/>
                     <button name='dupl_rec_ident' string='copy(Identefie)' type ='object'/>
                     <button name='delete_rec' string='delete' type ='object'/>
-                    <button name='delete_multi_rec' string='delete(multi)' type ='object'/>
+                    <button name='delete_multi_rec' string='delete(multi)' type ='object'/> -->
                     <button name='delete_multi_rec_diff' string='delete(diff)' type ='object'/>
+                    <button name='search_rec' string='search(all)' type ='object'/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
