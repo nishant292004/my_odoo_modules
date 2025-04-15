@@ -15,6 +15,7 @@
             <form>
                 <header>
                     <button name='browse_rec' string='browse(one)' type ='object'/>
+                    <button name='browse_rec_multi' string='browse(multiple)' type ='object'/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">

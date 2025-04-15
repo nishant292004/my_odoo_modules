@@ -18,9 +18,17 @@ class FarmMachines(models.Model):
     def browse_rec(self):
         """
         This is a method used to demonstrate browse() method
-        -------------------------------------------------------------
+        -----------------------------------------------------
         @param self: object pointer
         """
         single_rec = self.browse(5)
         print("SINGLE RECORD", single_rec)
     
+    def browse_rec_multi(self):
+        """
+        This is a method used to browse multiple records
+        -------------------------------------------------
+        @param self: object pointer
+        """
+        multi_rec = self.browse([2,4,6])
+        print("MULTIPLE RECORDS", multi_rec)
