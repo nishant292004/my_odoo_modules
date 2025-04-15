@@ -121,3 +121,13 @@ class FarmMachines(models.Model):
             }
             new_rec = rec.copy(default=default)
             print("NEW REC", new_rec)
+
+    def delete_rec(self):
+        """
+        This is a method used to delete the record from the current model
+        -----------------------------------------------------------------
+        @param self: object pointer
+        """
+        cur_rec = self.browse(12)
+        cur_rec.unlink()
+        print("RECORD DELETED")
