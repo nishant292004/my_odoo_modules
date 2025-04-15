@@ -201,4 +201,14 @@ class FarmMachines(models.Model):
         farm_obj = self.env['farm.model']
         all_recs = farm_obj.search_count([])
         print('ALL FARM RECORDS', all_recs)
+
+    def search_read_record(self):
+        """
+        This is a method used to search and read the records of current model
+        -------------------------------------------------------------
+        @param self: object pointer
+        """
+        
+        all_recs = self.search_read()
+        print('ALL  RECORDS', all_recs)
         
