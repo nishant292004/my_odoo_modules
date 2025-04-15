@@ -180,3 +180,14 @@ class FarmMachines(models.Model):
         farm_obj = self.env['farm.model']
         all_recs = farm_obj.search(domain=[('farm_type','=','large')],offset= 2,limit=5 ,order='est_date desc')
         print("ALL RECORDS OF FARM MODEL",all_recs)                                        
+
+    def search_count_record(self):
+        """
+        This is a method used to count() the records
+        --------------------------------------------
+        @param self: object pointer
+        """
+        all_recs = self.search_count([])
+        print('ALL', all_recs)
+        desc_records = self.search_count([('description','=',False)])
+        print("NOT DESCRIPTION RECORDS", desc_records)
