@@ -475,3 +475,19 @@ class MyFarm(models.Model):
         new_crop = self.write(new_rec)
         print("O2M UPDATED",new_crop)  
 
+    def update_o2m_rec_inv(self):
+        
+        """
+        This method is used to update existing O2M records for inverse method.
+        ----------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        new_rec =  {
+            'crop_ids':[
+                (Command.update(7,{'govt_add':0}))],
+            
+        } 
+        new_crop = self.write(new_rec)
+        print("O2M UPDATED",new_crop)  
+ 

@@ -13,7 +13,7 @@ class FarmCrop(models.Model):
     govt_add = fields.Float("Government's Profit Margin (%)")
     mrkt = fields.Float("Market's Profit Margin (%) ")
 
-    govt_price = fields.Float(compute='_calc_govt_price', string='Government Price (Rs.)')
+    govt_price = fields.Float(compute='_calc_govt_price', string='Government Price (Rs.)', inverse='_set_govt_price')
     mrkt_price = fields.Float(compute='_calc_mrkt_price', string='Market Price (Rs.)')
 
     @api.depends('cost','govt_add')
@@ -215,3 +215,14 @@ class FarmCrop(models.Model):
             farm_updated = farm.write(new_rec)
             print("Record Created",farm_updated)
 
+    def _set_govt_price(self):
+        """
+        This is an inverse method which will be called when you try to use compute field in the write method.
+        -----------------------------------------------------------------------------------------------------
+        @param self: object pointer / recordset
+        """
+
+        for crop in self:
+            if crop.govt_add == 0.0:
+                crop.govt_add = 35.0
+                crop.govt_price = crop.cost + (crop.cost * crop.govt_add)/100
