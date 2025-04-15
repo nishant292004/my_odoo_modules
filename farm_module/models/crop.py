@@ -234,6 +234,6 @@ class FarmCrop(models.Model):
         @param self: object pointer / recordset
         """
 
-        res = self.read_group([], fields=['cost'], groupby=['crop_type','time'])
+        res = self.read_group([], fields=['cost'], groupby=['crop_type','time'],lazy=False)
         print("SINGLE GROUP", res)
 
