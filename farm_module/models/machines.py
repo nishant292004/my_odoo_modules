@@ -161,3 +161,12 @@ class FarmMachines(models.Model):
         """
         all_recs = self.search([])
         print("ALL RECORDS",all_recs)                  
+
+    def search_spec_rec(self):
+        """
+        this method is used to fetch the specific record for current model 
+        ------------------------------------------------------------------
+        @param self: object pointer
+        """
+        all_recs = self.search([('description','=',False)])
+        print("ALL RECORDS",all_recs)                  
