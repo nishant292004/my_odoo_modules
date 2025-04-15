@@ -131,3 +131,13 @@ class FarmMachines(models.Model):
         cur_rec = self.browse(12)
         cur_rec.unlink()
         print("RECORD DELETED")
+
+    def delete_multi_rec(self):
+        """
+        This is a method used to delete the multiple records from the current model
+        ---------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        cur_rec = self.browse([9,10,11])
+        cur_rec.unlink()
+        print("RECORDS ARE DELETED")    

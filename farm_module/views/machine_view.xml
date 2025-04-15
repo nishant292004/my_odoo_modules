@@ -25,6 +25,7 @@
                     <button name='dupl_rec_multi' string='copy(Multi)' type ='object'/>
                     <button name='dupl_rec_ident' string='copy(Identefie)' type ='object'/>
                     <button name='delete_rec' string='delete' type ='object'/>
+                    <button name='delete_multi_rec' string='delete(multi)' type ='object'/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
