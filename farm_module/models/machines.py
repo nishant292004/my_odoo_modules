@@ -63,4 +63,14 @@ class FarmMachines(models.Model):
           
         read_machines = self.read()
         print("READ RECORDS",read_machines)  
- 
+    
+    def read_spec_rec(self):
+        
+        """
+        This method is used to read specific records.
+        ----------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        read_machines = self.read(['name','code'])
+        print("READ RECORDS",read_machines)  
