@@ -191,3 +191,14 @@ class FarmMachines(models.Model):
         print('ALL', all_recs)
         desc_records = self.search_count([('description','=',False)])
         print("NOT DESCRIPTION RECORDS", desc_records)
+
+    def search_count_record_diff(self):
+        """
+        This is a method used to count() the records of another model
+        -------------------------------------------------------------
+        @param self: object pointer
+        """
+        farm_obj = self.env['farm.model']
+        all_recs = farm_obj.search_count([])
+        print('ALL FARM RECORDS', all_recs)
+        

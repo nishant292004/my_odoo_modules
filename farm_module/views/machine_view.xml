@@ -31,6 +31,7 @@
                     <button name='search_spec_rec' string='search(specific)' type ='object'/>
                     <button name='search_spec_rec_diff' string='model search' type ='object'/>
                     <button name='search_count_record' string='count' type ='object'/>
+                    <button name='search_count_record_diff' string='model count' type ='object'/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
