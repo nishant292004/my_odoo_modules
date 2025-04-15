@@ -32,3 +32,13 @@ class FarmMachines(models.Model):
         """
         multi_rec = self.browse([2,4,6])
         print("MULTIPLE RECORDS", multi_rec)
+
+    def browse_rec_one_diff(self):
+        """
+        This is a method used to browse single record from different model
+        ------------------------------------------------------------------
+        @param self: object pointer
+        """
+        crop_obj = self.env['farm.crop']
+        single_rec = crop_obj.browse(1)
+        print("SINGLE RECORD", single_rec)

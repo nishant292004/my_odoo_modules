@@ -16,6 +16,7 @@
                 <header>
                     <button name='browse_rec' string='browse(one)' type ='object'/>
                     <button name='browse_rec_multi' string='browse(multiple)' type ='object'/>
+                    <button name='browse_rec_one_diff' string='diff browse(one)' type ='object'/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
