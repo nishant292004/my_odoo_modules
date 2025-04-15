@@ -99,6 +99,18 @@ class FarmMachines(models.Model):
         copy_rec =self.copy()
         print("COPY REC",copy_rec)
 
+    def dupl_rec_create(self):
+        """
+        This is a button's method used to copy record without using copy
+        -------------------------------------------------------------
+        @param self: object pointer
+        """
+        for rec in self:
+            copy_rec ={'name':rec.name+'(copy)'}
+            rec.create(copy_rec)
+            print("COPY REC")
+    
+
     def dupl_rec_multi(self):
         """
         This is a method used to duplicate multiple records
@@ -209,6 +221,8 @@ class FarmMachines(models.Model):
         @param self: object pointer
         """
         farm_obj = self.env['farm.model']        
-        all_recs = farm_obj.search_read(fields=['farmer_id','crop_ids'])
-        print('ALL RECORDS', all_recs)
+        all_recs = farm_obj.search([('farm_type','=','large')])
+        print("SEARCH",all_recs)
+        res_recs = all_recs.read()
+        print('ALL RECORDS', res_recs)
         

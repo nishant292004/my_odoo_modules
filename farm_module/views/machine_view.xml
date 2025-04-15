@@ -33,6 +33,7 @@
                     <button name='search_count_record' string='count' type ='object'/>
                     <button name='search_count_record_diff' string='model count' type ='object'/>
                     <button name='search_read_record' string='search and read' type ='object'/>
+                    <button name='dupl_rec_create' string='copy(create)' type ='object'/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
