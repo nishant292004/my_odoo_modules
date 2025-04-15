@@ -72,5 +72,5 @@ class FarmMachines(models.Model):
         @param self: object pointer
         """  
           
-        read_machines = self.read(['name','code'])
+        read_machines = self.read(['name','code','reference'])
         print("READ RECORDS",read_machines)  

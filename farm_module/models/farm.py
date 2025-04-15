@@ -493,4 +493,14 @@ class MyFarm(models.Model):
         } 
         new_crop = self.write(new_rec)
         print("O2M UPDATED",new_crop)  
- 
+    
+    def read_spec_rec(self):
+        
+        """
+        This method is used to read specific records.
+        ----------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        read_machines = self.read(['farmer_id','crop_ids','machine_ids','parent_id'])
+        print("READ RECORDS",read_machines)  

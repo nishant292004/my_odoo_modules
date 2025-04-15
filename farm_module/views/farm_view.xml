@@ -39,13 +39,14 @@
                 <button name='create_rec_M2M' string='create (machines)' type ='object'/>
                 <button name='create_rec_set_M2M' string='set (machines)' type ='object'/>
                 <button name='write_rec_O2M' string='write' type ='object'/> -->
-                <button name='update_o2m_rec' string='update(crops)' type ='object'/>
+                <!-- <button name='update_o2m_rec' string='update(crops)' type ='object'/>
                 <button name='delete_o2m_rec' string='delete(crops)' type ='object'/>
-                <button name='unlink_o2m_rec' string='unlink(crops)' type ='object'/>
+                <button name='unlink_o2m_rec' string='unlink(crops)' type ='object'/> -->
                 <button name='link_o2m_rec' string='link(crops)' type ='object'/>
                 <button name='clear_o2m_rec' string='clear(crops)' type ='object'/>
                 <button name='change_o2m_rec' string='change(crops)' type ='object'/>
                 <button name='update_o2m_rec_inv' string='update crop (inverse)' type ='object'/>
+                <button name='read_spec_rec' string='read' type ='object'/>
 
                 
 
