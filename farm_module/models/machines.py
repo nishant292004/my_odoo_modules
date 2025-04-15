@@ -209,6 +209,6 @@ class FarmMachines(models.Model):
         @param self: object pointer
         """
         
-        all_recs = self.search_read()
-        print('ALL  RECORDS', all_recs)
+        all_recs = self.search_read(fields=['currency_id','reference'])
+        print('ALL RECORDS', all_recs)
         
