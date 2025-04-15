@@ -74,3 +74,17 @@ class FarmMachines(models.Model):
           
         read_machines = self.read(['name','code','reference'])
         print("READ RECORDS",read_machines)  
+
+    def read_diff_rec(self):
+        
+        """
+        This method is used to read records of different model.
+        ----------------------------------------------------
+        @param self: object pointer
+        """  
+        
+
+        crop_obj = self.env['farm.crop']
+        multi_rec = crop_obj.browse([2,4,7])
+        read_rec = multi_rec.read()
+        print("READ RECORDS",read_rec)  
