@@ -485,7 +485,8 @@ class MyFarm(models.Model):
           
         new_rec =  {
             'crop_ids':[
-                (Command.update(7,{'govt_add':0}))],
+                (1,7,{'govt_add':0}),
+                ],
             
         } 
         new_crop = self.write(new_rec)

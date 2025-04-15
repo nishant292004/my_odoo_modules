@@ -14,4 +14,13 @@ class FarmMachines(models.Model):
     doc = fields.Binary('Machine Specification')
     photo = fields.Image('Image')
     extra_info =fields.Html('Additional Information')
+
+    def browse_rec(self):
+        """
+        This is a method used to demonstrate browse() method
+        -------------------------------------------------------------
+        @param self: object pointer
+        """
+        single_rec = self.browse(5)
+        print("SINGLE RECORD", single_rec)
     

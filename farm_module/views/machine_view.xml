@@ -13,6 +13,9 @@
         <field name='model'>farm.machines</field>
         <field name='arch' type='xml'>
             <form>
+                <header>
+                    <button name='browse_rec' string='browse(one)' type ='object'/>
+                </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                     
