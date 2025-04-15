@@ -515,3 +515,26 @@ class MyFarm(models.Model):
           
         read_id = self.read(['farmer_id'])
         print("READ RECORDS",read_id)  
+
+    def mapped_rec(self):
+        
+        """
+        This method is used to mapped the records id.
+        ----------------------------------------------------
+        @param self: object pointer
+        """  
+          
+        all_rec = self.search([]).mapped(lambda rec:(rec.id,rec.code))
+        # ans_list = [all_rec[i:i + 5] for i in range(0, len(all_rec), 5)]
+        ans_list=[]
+        temp_list=[]
+
+        for rec in all_rec:
+            temp_list.append(rec)
+            if len(temp_list)==5:
+                ans_list.append(temp_list)
+                temp_list = []
+        if temp_list:
+            ans_list.append(temp_list)        
+        
+        print("READ RECORDS",ans_list)  
