@@ -178,5 +178,5 @@ class FarmMachines(models.Model):
         @param self: object pointer
         """
         farm_obj = self.env['farm.model']
-        all_recs = farm_obj.search(domain=[('farm_type','=','large')],offset=2)
+        all_recs = farm_obj.search(domain=[('farm_type','=','large')],limit=5)
         print("ALL RECORDS OF FARM MODEL",all_recs)                                        
