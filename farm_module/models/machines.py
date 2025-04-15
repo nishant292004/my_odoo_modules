@@ -108,3 +108,16 @@ class FarmMachines(models.Model):
         multi_recs = self.browse([4,5,6])
         copy_rec =multi_recs.copy()
         print("COPY REC",copy_rec)
+
+    def dupl_rec_ident(self):
+        """
+        This is a method used to duplicate multiple records such that we can differentiate it
+        -------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
+        for rec in self:
+            default = {
+                'name': rec.name + ' (Copy)'
+            }
+            new_rec = rec.copy(default=default)
+            print("NEW REC", new_rec)
