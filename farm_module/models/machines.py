@@ -46,7 +46,7 @@ class FarmMachines(models.Model):
     def browse_rec_multi_diff(self):
         """
         This is a method used to browse multiple records from different model
-        ------------------------------------------------------------------
+        ---------------------------------------------------------------------
         @param self: object pointer
         """
         crop_obj = self.env['farm.crop']
@@ -57,7 +57,7 @@ class FarmMachines(models.Model):
         
         """
         This method is used to read records.
-        ----------------------------------------------------
+        ------------------------------------
         @param self: object pointer
         """  
           
@@ -68,7 +68,7 @@ class FarmMachines(models.Model):
         
         """
         This method is used to read specific records.
-        ----------------------------------------------------
+        ---------------------------------------------
         @param self: object pointer
         """  
           
@@ -79,7 +79,7 @@ class FarmMachines(models.Model):
         
         """
         This method is used to read records of different model.
-        ----------------------------------------------------
+        ------------------------------------------------------
         @param self: object pointer
         """  
         
@@ -92,7 +92,7 @@ class FarmMachines(models.Model):
     def dupl_rec(self):
         """
         This is a button's method used to demonstrate copy() method
-        -------------------------------------------------------------
+        -----------------------------------------------------------
         @param self: object pointer
         """
 
@@ -102,7 +102,7 @@ class FarmMachines(models.Model):
     def dupl_rec_create(self):
         """
         This is a button's method used to copy record without using copy
-        -------------------------------------------------------------
+        ----------------------------------------------------------------
         @param self: object pointer
         """
         for rec in self:
@@ -114,7 +114,7 @@ class FarmMachines(models.Model):
     def dupl_rec_multi(self):
         """
         This is a method used to duplicate multiple records
-        -------------------------------------------------------------
+        ---------------------------------------------------
         @param self: object pointer
         """
         multi_recs = self.browse([4,5,6])
@@ -168,7 +168,7 @@ class FarmMachines(models.Model):
     def search_rec(self):
         """
         this method is used to fetch all thee the current model's record
-        -----------------------------------------------------------------------------
+        ----------------------------------------------------------------
         @param self: object pointer
         """
         all_recs = self.search(domain=[],order='name desc')
@@ -217,7 +217,7 @@ class FarmMachines(models.Model):
     def search_read_record(self):
         """
         This is a method used to search and read the records of current model
-        -------------------------------------------------------------
+        ---------------------------------------------------------------------
         @param self: object pointer
         """
         farm_obj = self.env['farm.model']        

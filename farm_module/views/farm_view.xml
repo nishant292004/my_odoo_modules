@@ -22,7 +22,7 @@
             <form>
                 
                 <header>
-                <button name='%(action_farmer)d' string='Related' type ='action'/>
+                <button name='%(action_farm_by_farmer)d' string='Related' type ='action'/>
                 <!-- <button name='fetch_rec_set' string='Fetch Rec ' type ='object'/>
                 <button name='fetch_one_rec_set' string='Fetch One Rec ' type ='object'/>
                 <button name='fetch_val_rec_set' string='Fetch Value' type ='object'/>
