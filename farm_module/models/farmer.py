@@ -22,10 +22,20 @@ class Farmer(models.Model):
 
 
     def print_name(self):
+        """
+        This method is used to print the name field for active record.
+        ---------------------------------------------------------------
+        @param self: object pointer
+        """
 
         print(self.name)
 
     def _calc_no_of_farms(self):
+        """
+        This method is used to calculate the total number of farms a farmer have.
+        -------------------------------------------------------------------------
+        @param self: object pointer
+        """
 
         farm_obj = self.env['farm.model']
 

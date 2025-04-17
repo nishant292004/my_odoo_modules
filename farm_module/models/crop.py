@@ -42,6 +42,11 @@ class FarmCrop(models.Model):
             price.mrkt_price = price.cost + (price.cost * price.mrkt)/100
 
     def print_records(self):    
+        """
+        This method is used to fetch the the records after executing query.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
 
         self.env.cr.execute("UPDATE farm_crop SET name='peanut' WHERE id=6")
         res_1 = self.env.cr.fetchone()
@@ -54,14 +59,24 @@ class FarmCrop(models.Model):
 
         print(res_1)
 
-    def print_dict_records(self):      
+    def print_dict_records(self): 
+        """
+        This method is used to fetch the single record in dictionary after executing query.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """     
 
         self.env.cr.execute("SELECT * from farm_crop") 
         res_1 = self.env.cr.dictfetchone()
 
         print(res_1) 
 
-    def print_dict_records_all(self):      
+    def print_dict_records_all(self):  
+        """
+        This method is used to fetch the multiple records in dictionary after executing query.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """     
 
         self.env.cr.execute("SELECT * from farm_crop") 
         res_1 = self.env.cr.dictfetchall()
@@ -69,6 +84,11 @@ class FarmCrop(models.Model):
         print(res_1)           
     
     def del_records(self):    
+        """
+        This method is used to delete the particular record using cursor pointer.
+        -------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """ 
 
         self.env.cr.execute("delete from farm_crop WHERE id=6")
 
@@ -79,7 +99,12 @@ class FarmCrop(models.Model):
 
         print(res_1)
 
-    def print_data(self):    
+    def print_data(self): 
+        """
+        This method is used to print the data of different environment variables for user.
+        ----------------------------------------------------------------------------------
+        @param self: object pointer
+        """   
 
         uid = self.env.uid
         print(uid)
@@ -95,6 +120,11 @@ class FarmCrop(models.Model):
         print(lang)
 
     def list_modl(self):
+        """
+        This method is used fetch the data of models,objects and both in single result using methods like keys,values and items.
+        ------------------------------------------------------------------------------------------------------------------------
+        @param self: object pointer
+        """
         
         rel_obj = self.env['farm.model']
         print(rel_obj)
@@ -106,6 +136,11 @@ class FarmCrop(models.Model):
         print(list(data_all))   
 
     def print_from_xml_id(self):
+        """
+        This method is used to fetch the xml id of list, action and menu.
+        -----------------------------------------------------------------
+        @param self: object pointer
+        """
         view_xml_id = self.env.ref('farm_module.view_crop_tree')   
         print("VIEW",view_xml_id) 
         act_xml_id = self.env.ref('farm_module.action_crop')   
@@ -114,6 +149,11 @@ class FarmCrop(models.Model):
         print("MENU",menu_xml_id) 
 
     def print_rec_add_data(self):
+        """
+        This method is used to fetch the ids of group, security,user and company.
+        ------------------------------------------------------------------------
+        @param self: object pointer
+        """
 
         grp_data = self.env.ref('farm_module.grp_farm_admin')
         print(grp_data)
