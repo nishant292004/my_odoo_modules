@@ -53,6 +53,7 @@
                 <button name='read_spec_rec' string='read' type ='object'/>
                 <button name='read_spec_id' string='read(id)' type ='object'/>
                 <button name='mapped_rec' string='mapped' type ='object'/>
+                <button name='check_exist' string='check exist' type ='object'/>
 
                 
 
@@ -153,7 +154,7 @@
         <field name="arch" type="xml">
             <list>            
                 <field name='sequence' widget='handle' />
-                <field name='code' />
+                <field name='code'/>
                 <field name='farmer_id' required='1' />
                 <field name='farm_size' required='1' />
                 <field name='is_organic' />

@@ -71,7 +71,7 @@ class MyFarm(models.Model):
 
         """
         This method is used to calculate the total govt price based on cost and govt profit margin.
-        -------------------------------------------------------------------------------------------
+        ----------------------------------------------------------------------------
         @param self: object pointer
         """
 
@@ -83,7 +83,7 @@ class MyFarm(models.Model):
     def _calc_mrkt_price(self):
         """
         This method is used to calculate the total market price based on cost and market profit margin.
-        -------------------------------------------------------------------------------------------
+        -------------------------------------------------------------------------
         @param self: object pointer
         """
 
@@ -97,7 +97,7 @@ class MyFarm(models.Model):
     def fetch_rec_set(self):
         """
         This method is used to fetch the blank record set of another model.
-        -------------------------------------------------------------------------------------------
+        -------------------------------------------------------------------
         @param self: object pointer
         """
         crop_obj = self.env['farm.crop']
@@ -115,7 +115,7 @@ class MyFarm(models.Model):
     def fetch_val_rec_set(self):
         """
         This method is used to fetch the value of the record from the record set.
-        -------------------------------------------------------------------------------------------
+        -------------------------------------------------------------------------
         @param self: object pointer
         """
         for farm in self:
@@ -124,7 +124,7 @@ class MyFarm(models.Model):
     def fetch_val_diff_rec_set(self):
         """
         This method is used to fetch the value of the record from the related model record set.
-        -------------------------------------------------------------------------------------------
+        ---------------------------------------------------------------------------
         @param self: object pointer
         """
         crop_obj = self.env['farm.crop'].search([])
@@ -135,7 +135,7 @@ class MyFarm(models.Model):
     def fetch_mul_diff_rec_set(self):
         """
         This method is used to fetch the value of the record from the related model with muliple recordset record set.
-        -------------------------------------------------------------------------------------------
+        ---------------------------------------------------------------------------
         @param self: object pointer
         """
         crop_obj = self.env['farm.crop'].search([])
@@ -208,7 +208,7 @@ class MyFarm(models.Model):
     def filt_data_opp(self):
         """
         This method is used to filter the opposite record using lambda.
-        -------------------------------------------------------------------------------------------
+        ---------------------------------------------------------------
         @param self: object pointer
         """
         farm_data = self.env['farm.model'].search([])
@@ -218,7 +218,7 @@ class MyFarm(models.Model):
     def filt_mult_cond(self):
         """
         This method is used to filter the record using multple conditions.
-        -------------------------------------------------------------------------------------------
+        ------------------------------------------------------------------
         @param self: object pointer
         """
         farm_data = self.env['farm.model'].search([])
@@ -228,7 +228,7 @@ class MyFarm(models.Model):
     def mult_rec_in_list(self):
         """
         This method is used to filter the record using a single list.
-        -------------------------------------------------------------------------------------------
+        -------------------------------------------------------------
         @param self: object pointer
         """
         all_rec = [(rec.code,rec.farm_type,rec.farmer_id.name) for rec in self] 
@@ -238,7 +238,7 @@ class MyFarm(models.Model):
     def cond_in_list(self):
         """
         This method is used to filter the record using condition in a single list.
-        -------------------------------------------------------------------------------------------
+        --------------------------------------------------------------------------
         @param self: object pointer
         """
         concat_list = [rec.code+'-'+rec.farm_type for rec in self] 
@@ -247,7 +247,7 @@ class MyFarm(models.Model):
     def sorted_rec(self):
         """
         This method is used to sort the records using condition.
-        -------------------------------------------------------------------------------------------
+        --------------------------------------------------------
         @param self: object pointer
         """
         obj = self.env['farm.model'].search([])
@@ -257,7 +257,7 @@ class MyFarm(models.Model):
     def sorted_rec_lambda(self):
         """
         This method is used to sort the records using lambda condition.
-        -------------------------------------------------------------------------------------------
+        ---------------------------------------------------------------
         @param self: object pointer
         """
         obj = self.env['farm.model'].search([])
@@ -267,7 +267,7 @@ class MyFarm(models.Model):
     def sorted_rec_lambda_rev(self):
         """
         This method is used to sort the records in descending order using lambda condition.
-        -------------------------------------------------------------------------------------------
+        -------------------------------------------------------------------------
         @param self: object pointer
         """
         obj = self.env['farm.model'].search([])
@@ -278,7 +278,7 @@ class MyFarm(models.Model):
         
         """
         This method is used to create O2M records .
-        -------------------------------------------------------------------------------------------
+        -------------------------------------------
         @param self: object pointer
         """  
           
@@ -309,8 +309,8 @@ class MyFarm(models.Model):
     def create_rec_M2M(self):
         
         """
-        This method is used to create M 2M records .
-        -------------------------------------------------------------------------------------------
+        This method is used to create M 2M records.
+        -------------------------------------------
         @param self: object pointer
         """  
           
@@ -327,8 +327,8 @@ class MyFarm(models.Model):
     def create_rec_set_M2M(self):
         
         """
-        This method is used to create M2M records and remove existing one .
-        -------------------------------------------------------------------------------------------
+        This method is used to create M2M records and remove existing one.
+        ------------------------------------------------------------------
         @param self: object pointer
         """  
           
@@ -344,8 +344,8 @@ class MyFarm(models.Model):
     def write_rec_O2M(self):
         
         """
-        This method is used to write O2M records .
-        -------------------------------------------------------------------------------------------
+        This method is used to write O2M records.
+        -----------------------------------------
         @param self: object pointer
         """  
           
@@ -376,8 +376,8 @@ class MyFarm(models.Model):
     def update_o2m_rec(self):
         
         """
-        This method is used to update existing O2M records .
-        ----------------------------------------------------
+        This method is used to update existing O2M records.
+        ---------------------------------------------------
         @param self: object pointer
         """  
           
@@ -393,8 +393,8 @@ class MyFarm(models.Model):
     def delete_o2m_rec(self):
         
         """
-        This method is used to delete existing O2M records .
-        ----------------------------------------------------
+        This method is used to delete existing O2M records.
+        ---------------------------------------------------
         @param self: object pointer
         """  
           
@@ -410,7 +410,7 @@ class MyFarm(models.Model):
     def unlink_o2m_rec(self):
         
         """
-        This method is used to delete existing O2M records but not from database .
+        This method is used to delete existing O2M records but not from database.
         -------------------------------------------------------------------------
         @param self: object pointer
         """  
@@ -447,7 +447,7 @@ class MyFarm(models.Model):
         
         """
         This method is used to clear existing O2M records.
-        ------------------------------------------------
+        -------------------------------------------------
         @param self: object pointer
         """  
           
@@ -464,7 +464,7 @@ class MyFarm(models.Model):
         
         """
         This method is used to change existing O2M records.
-        ------------------------------------------------
+        --------------------------------------------------
         @param self: object pointer
         """  
           
@@ -481,7 +481,7 @@ class MyFarm(models.Model):
         
         """
         This method is used to update existing O2M records for inverse method.
-        ----------------------------------------------------
+        ----------------------------------------------------------------------
         @param self: object pointer
         """  
           
@@ -498,7 +498,7 @@ class MyFarm(models.Model):
         
         """
         This method is used to read specific records.
-        ----------------------------------------------------
+        ---------------------------------------------
         @param self: object pointer
         """  
           
@@ -509,7 +509,7 @@ class MyFarm(models.Model):
         
         """
         This method is used to read M2O records id.
-        ----------------------------------------------------
+        -------------------------------------------
         @param self: object pointer
         """  
           
@@ -520,7 +520,7 @@ class MyFarm(models.Model):
         
         """
         This method is used to mapped the records id.
-        ----------------------------------------------------
+        ---------------------------------------------
         @param self: object pointer
         """  
           
@@ -538,6 +538,11 @@ class MyFarm(models.Model):
             ans_list.append(temp_list)        
         
         print("READ RECORDS",ans_list)  
+
+    def check_exist(self):
+        
+        check = self.ensure_one()
+        print(check)    
 
 
 # APIs (decorators) 
@@ -626,8 +631,8 @@ class MyFarm(models.Model):
     # def write_rec_O2M(self):
         
     #     """
-    #     This method is used to write O2M records .
-    #     -------------------------------------------------------------------------------------------
+    #     This method is used to write O2M records.
+    #     -----------------------------------------
     #     @param self: object pointer
     #     """  
           
@@ -657,60 +662,18 @@ class MyFarm(models.Model):
 
     # 5. @api.onchange(<fields-name>)
 
-    # the @api.onchange(<fields-name>) is used when when we want to change the value of the field when the another field is get changed .
+    # the @api.onchange(<fields-name>) is used when when we want to change the value of the field when the another field is get changed.
+
     # for example when the one field's value get changed then we want to update the value of another field.
-
-    # example
-
-    # @api.onchange('farm_size')
-    # def _change_val(self):
-    #     """
-    #     This method is will update the fields value 
-    #     -------------------------------------------
-    #     @params self: object pointer 
-    #     """
-
-    #     for rec in self:
-    #         if rec.farm_size < 20:
-    #             rec.farm_type = 'medium'
 
 
     # 6. @api.constrains(<fields-name>)
 
     #  the @api.constrains(<fields-name>) decorator is used to add the object consrtains in the model. when we want to use user defined constrains then we use this api.
-
-    # example
-
-    # @api.constrains('farm_size')
-    # def _check_age(self):
-    #     """
-    #     This method is will check the constrain condition 
-    #      ------------------------------------------------
-    #      @params self: object pointer 
-    #     """
-    #     for rec in self:
-    #          if rec.farm_size == 0:
-    #             raise ValidationError("The Farm size should not be zero")
-
-    
+   
     # 7. @api.readonly
 
     #  the @api.readonly is used when we don't want change the method or record it can not modify the database.
-
-    # example
-
-    # for this we have to use @api.model then we will declare @api.readonly
-
-    # @api.model
-    # @api.readonly
-    # def get_data(self):
-    #     """
-    #     This method is will only read the records 
-    #       -------------------------------------------
-    #       @params self: object pointer 
-    #     """
-    
-    #     print(self.env['farm.model'].search([]))
 
     # 8. @api.returns(<field-name>)
 
@@ -719,9 +682,3 @@ class MyFarm(models.Model):
     # 9. @api.private
 
     # the @api.private is used when we want to make the public method to private.
-
-
-
-
-
-
