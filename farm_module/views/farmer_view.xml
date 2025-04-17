@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <odoo>
-    <record id="action_farms_by_farmer" model="ir.actions.act_window">
+    <record id="action_farms_farmer" model="ir.actions.act_window">
         <field name="name">Farms</field>
         <field name="res_model">farm.model</field>
         <field name="view_mode">list,form</field>
         <field name="context">{'search_default_farmer_id':active_id}</field>
     </record>
-
 
     <record id='views_farmer_form' model='ir.ui.view'>
         <field name='name'>view.farmer.form</field>
@@ -29,7 +28,7 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                     
-                        <button class="oe_stat_button" name="%(action_farms_by_farmer)d"
+                        <button class="oe_stat_button" name="%(action_farms_farmer)d"
                                 type="action" icon="fa-users">
                                <field name="no_of_farms" string="Farms" widget="statinfo"/>
                         </button>

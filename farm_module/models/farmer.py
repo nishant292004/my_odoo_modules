@@ -16,7 +16,7 @@ class Farmer(models.Model):
 
     user_id = fields.Many2one('res.users', 'Responsible', default=lambda self: self.env.uid)
     comp_id = fields.Many2one('res.company', 'Company', default=lambda self: self.env.company.id)
-    lang_id = fields.Many2one('res.lang', 'language', default=lambda self:  self.env['res.lang'].search([('code', '=', 'en_US')], limit=1).id)
+    lang_id = fields.Many2one('res.lang', 'language', default=lambda self:  self.env.lang.id)
     currency_id = fields.Many2one('res.currency', 'Currency', default=lambda self: self.env.ref('base.USD').id)
 
 
@@ -124,6 +124,8 @@ class Farmer(models.Model):
         """    
         for rec in self:
             print("BEFORE",rec.user_id)
+            print("USER",self.env.user)
+            print("USER",self.env.uid)
             rec.user_id = self.env.user
             print("AFTER",rec.user_id)
 

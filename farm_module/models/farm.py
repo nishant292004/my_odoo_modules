@@ -9,7 +9,7 @@ class MyFarm(models.Model):
     _parent_store = True
     _order = 'farmer_id asc'
     
-    farmer_id = fields.Many2one('farm.farmer',string="Farmer's Name")
+    farmer_id = fields.Many2one(comodel_name='farm.farmer',string="Farmer's Name")
 
     farm_size = fields.Float("Area Of Farm (Hectares)", digits=(10,3) , aggregator='avg')
 
