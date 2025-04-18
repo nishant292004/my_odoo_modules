@@ -28,11 +28,11 @@
                 <button name='fetch_val_rec_set' string='Fetch Value' type ='object'/>
                 <button name='fetch_val_diff_rec_set' string='Fetch Values (diff)' type ='object'/>
                 <button name='fetch_mul_diff_rec_set' string='Fetch Values (Multiple)' type ='object'/> -->
-                <!-- <button name='fetch_one_ens_one' string='ensure' type ='object'/>
+                <button name='fetch_one_ens_one' string='ensure' type ='object'/>
                 <button name='fetch_mul_ens_one' string='ensure (mul)' type ='object'/>
                 <button name='fetch_meta_data_one' string='metadata' type ='object'/>
                 <button name='fetch_meta_data_mul' string='metadata (mul)' type ='object'/>
-                <button name='filt_data' string='filter' type ='object'/> -->
+                <button name='filt_data' string='filter' type ='object'/>
                 <!-- <button name='filt_data_lambda' string='filter (lambda)' type ='object'/>
                 <button name='filt_data_opp' string='filter (opp)' type ='object'/>
                 <button name='filt_mult_cond' string='filter (mult cond.)' type ='object'/>
@@ -45,14 +45,14 @@
                 <button name='create_rec_M2M' string='create (machines)' type ='object'/>
                 <button name='create_rec_set_M2M' string='set (machines)' type ='object'/>
                 <button name='write_rec_O2M' string='write' type ='object'/> -->
-                <button name='update_o2m_rec' string='update(crops)' type ='object'/>
+                <!-- <button name='update_o2m_rec' string='update(crops)' type ='object'/>
                 <button name='delete_o2m_rec' string='delete(crops)' type ='object'/>
                 <button name='clear_o2m_rec' string='clear(crops)' type ='object'/>
                 <button name='change_o2m_rec' string='change(crops)' type ='object'/>
                 <button name='update_o2m_rec_inv' string='update crop (inverse)' type ='object'/>
                 <button name='read_spec_rec' string='read' type ='object'/>
                 <button name='read_spec_id' string='read(id)' type ='object'/>
-                <button name='mapped_rec' string='mapped' type ='object'/>
+                <button name='mapped_rec' string='mapped' type ='object'/> -->
                 <button name='check_exist' string='check exist' type ='object'/>
 
                 

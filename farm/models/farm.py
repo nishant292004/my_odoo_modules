@@ -182,7 +182,7 @@ class MyFarm(models.Model):
         -------------------------------------------------------------------------------------------
         @param self: object pointer
         """
-        crop_obj = self.env['farm.crop'].search([])
+        crop_obj = self.env['farm.farmer'].search([])
         print(crop_obj.get_metadata())  
 
     def filt_data(self):
@@ -419,7 +419,6 @@ class MyFarm(models.Model):
             'crop_ids':[
                 (3,1),
                 (Command.unlink(2))],
-            
         } 
         new_crop = self.write(new_rec)
         print("O2M UPDATED",new_crop)  
