@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="action_farms_farmer" model="ir.actions.act_window">
+        <field name="name">Farms</field>
+        <field name="res_model">farm.model</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_farmer_id':active_id}</field>
+    </record>
+
+    <record id='views_farmer_form' model='ir.ui.view'>
+        <field name='name'>view.farmer.form</field>
+        <field name='model'>farm.farmer</field>
+        <field name='arch' type='xml'>
+            <form>
+                <header>
+                    <button name='print_name' string='print' type ='object'/>                
+                    <button name='check_rec_set' string='check rec' type ='object'/>                
+                    <button name='check_subset' string='check subset' type ='object'/>                
+                    <button name='union_rec' string='union' type ='object'/>                
+                    <button name='inersec_rec' string='intersection' type ='object'/>                
+                    <button name='diff_rec' string='difference' type ='object'/>                
+                    <button name='update_user_id' string='update (user id)' type ='object'/>                
+                    <button name='toggle_active' string='active' invisible='active' type ='object'/>                
+                    <button name='toggle_active' string='de-active' invisible='not active' type ='object'/>                
+                    <!-- <button name='%(action_farm)d' string='Related' type ='object'/> -->
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    
+                        <button class="oe_stat_button" name="%(action_farms_farmer)d"
+                                type="action" icon="fa-users">
+                               <field name="no_of_farms" string="Farms" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                        <field name='name'/>
+                        <field name='gender'/>
+                        <field name='age'/>
+                        <field name='user_id'/>
+                        <field name='active'/>
+                        <field name='comp_id'/>
+                        <field name='lang_id'/>
+                        <field name='currency_id'/>
+                        <field name='mo_no'/>
+                        <field name='farm_id' options="{'no_create':1, 'no_open':1}"/>
+                    </group>
+                    <notebook>
+                        <page id='pg_crop' string='Specialization (Crops)'>
+                         <field name='crop_ids'/>                       
+                        </page>
+                        <page id='pg_machine' string='Machines'>
+                         <field name='machine_ids'/>                       
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_farmer_tree" model="ir.ui.view">
+        <field name="name">view.farmer.tree</field>
+        <field name="model">farm.farmer</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name='name'/>
+                <field name='gender'/>
+                <field name='age'/>
+                <field name='mo_no'/>
+                <field name='farm_id'/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_farmer_search" model="ir.ui.view">
+        <field name="name">view.farmer.search</field>
+        <field name="model">farm.farmer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name='name'/>
+                <field name='age'/>
+                <field name='mo_no'/>
+                <field name='farm_id'/>
+
+                <filter name="fill_age" string="Age > 50" domain="[('age','>',50)]"/>
+                <filter name="grp_by_gender" string="Gender" domain="[]" context="{'group_by':'gender'}"/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="action_farmer" model="ir.actions.act_window">
+        <field name="name">Farmer</field>
+        <field name="res_model">farm.farmer</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_farmer_gender" model="ir.actions.act_window">
+        <field name="name">Farmer Gender</field>
+        <field name="res_model">farm.farmer</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_grp_by_gender':1}</field>
+    </record>
+
+    <menuitem id="menu_farmer_info" action="action_farmer" parent="menu_farm_app" sequence='10' />
+    <menuitem id="menu_farmer_gender" action="action_farmer_gender" parent="menu_config" />
+
+</odoo>

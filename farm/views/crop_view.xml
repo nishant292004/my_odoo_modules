@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id='views_crop_form' model='ir.ui.view'>
+        <field name='name'>view.crop.form</field>
+        <field name='model'>farm.crop</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <header>
+                        <!-- <button name='print_records' string='update' type ='object'/>                
+                        <button name='print_dict_records' string='print in dict' type ='object'/>                
+                        <button name='print_dict_records_all' string='print all records' type ='object'/>                
+                        <button name='del_records' string='delete' type ='object'/>                
+                        <button name='print_data' string='print data' type ='object'/>                
+                        <button name='list_modl' string='model data' type ='object'/>                
+                        <button name='print_from_xml_id' string='data of id' type ='object'/>                 -->
+                        <button name='print_rec_add_data' string='additional Data' type ='object'/>                
+                        <button name='create_rec' string='create rec' type ='object'/>                
+                        <button name='create_rec_diff' string='create rec (diff)' type ='object'/>                
+                        <button name='update_rec' string='update' type ='object'/>                
+                        <button name='update_rec_diff' string='update (diff)' type ='object'/>                
+                        <button name='read_group_rec' string='Read Group' type ='object'/>                
+                    </header>
+                    <group>
+                        <field name='name'/>
+                        <field name='crop_type'/>
+                        <field name='time'/>
+                        <field name='code'/>
+                        <field name='farm_id'/>
+                        <field name='cost' invisible="not farm_id"/>
+                        <field name='govt_add' readonly="not name"/>
+                        <field name='mrkt' readonly="not name"/>
+                        <field name='govt_price' />
+                        <field name='mrkt_price' />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_crop_tree" model="ir.ui.view">
+        <field name="name">view.crop.tree</field>
+        <field name="model">farm.crop</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name='name'/>
+                <field name='crop_type'/>
+                <field name='code'/>
+                <field name='govt_price'/>
+                <field name='mrkt_price'/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_crop_search" model="ir.ui.view">
+        <field name="name">view.crop.search</field>
+        <field name="model">farm.crop</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name='name'/>
+                <field name='crop_type'/>
+                <field name='code'/>
+
+                <filter name="fill_crop_type_mon" string="Monsoon" domain="[('crop_type','=','monsoon')]"/>
+                <filter name="fill_months" string="Months" domain="[]" context="{'group_by':'time'}"/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="action_crop" model="ir.actions.act_window">
+        <field name="name">Crop</field>
+        <field name="res_model">farm.crop</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_crop_info" action="action_crop" parent="menu_farm_app" sequence='5' />
+
+</odoo>

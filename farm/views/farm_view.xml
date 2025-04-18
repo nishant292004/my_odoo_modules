@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="action_farm_by_crops" model="ir.actions.act_window">
+        <field name="name">crops</field>
+        <field name="res_model">farm.crop</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_farm_id':active_id}</field>
+    </record>
+    <record id="action_farm_by_farmer" model="ir.actions.act_window">
+        <field name="name">Farmer</field>
+        <field name="res_model">farm.farmer</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_farm_id':active_id}</field>
+    </record>
+
+    <record id='views_farm_form' model='ir.ui.view'>
+        <field name='name'>view.farm.form</field>
+        <field name='model'>farm.model</field>
+        <field name='arch' type='xml'>
+            <form>
+                
+                <header>
+                <button name='%(action_farm_by_farmer)d' string='Related' type ='action'/>
+                <!-- <button name='fetch_rec_set' string='Fetch Rec ' type ='object'/>
+                <button name='fetch_one_rec_set' string='Fetch One Rec ' type ='object'/>
+                <button name='fetch_val_rec_set' string='Fetch Value' type ='object'/>
+                <button name='fetch_val_diff_rec_set' string='Fetch Values (diff)' type ='object'/>
+                <button name='fetch_mul_diff_rec_set' string='Fetch Values (Multiple)' type ='object'/> -->
+                <!-- <button name='fetch_one_ens_one' string='ensure' type ='object'/>
+                <button name='fetch_mul_ens_one' string='ensure (mul)' type ='object'/>
+                <button name='fetch_meta_data_one' string='metadata' type ='object'/>
+                <button name='fetch_meta_data_mul' string='metadata (mul)' type ='object'/>
+                <button name='filt_data' string='filter' type ='object'/> -->
+                <!-- <button name='filt_data_lambda' string='filter (lambda)' type ='object'/>
+                <button name='filt_data_opp' string='filter (opp)' type ='object'/>
+                <button name='filt_mult_cond' string='filter (mult cond.)' type ='object'/>
+                <button name='mult_rec_in_list' string='multi recs' type ='object'/> -->
+                <!-- <button name='cond_in_list' string='return' type ='object'/>
+                <button name='sorted_rec' string='sort' type ='object'/>
+                <button name='sorted_rec_lambda' string='sort(lambda)' type ='object'/> -->
+                <!-- <button name='sorted_rec_lambda_rev' string='rev sort' type ='object'/>
+                <button name='create_rec_O2M' string='create (crops)' type ='object'/>
+                <button name='create_rec_M2M' string='create (machines)' type ='object'/>
+                <button name='create_rec_set_M2M' string='set (machines)' type ='object'/>
+                <button name='write_rec_O2M' string='write' type ='object'/> -->
+                <button name='update_o2m_rec' string='update(crops)' type ='object'/>
+                <button name='delete_o2m_rec' string='delete(crops)' type ='object'/>
+                <button name='clear_o2m_rec' string='clear(crops)' type ='object'/>
+                <button name='change_o2m_rec' string='change(crops)' type ='object'/>
+                <button name='update_o2m_rec_inv' string='update crop (inverse)' type ='object'/>
+                <button name='read_spec_rec' string='read' type ='object'/>
+                <button name='read_spec_id' string='read(id)' type ='object'/>
+                <button name='mapped_rec' string='mapped' type ='object'/>
+                <button name='check_exist' string='check exist' type ='object'/>
+
+                
+
+                <!-- <button name='create_records' string='create' type ='object'/>
+                <button name='search_rec' string='search' type ='object'/>
+                <button name='fetch_records' string='fetch' type ='object'/>
+                <button name='fetch_mul_records' string='fetch multi' type ='object'/>
+                <button name='copy_rec' string='copy' type ='object'/> -->
+                    <field name="state" widget="statusbar" options="{'clickable':1}" />
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    
+                        <button class="oe_stat_button" name="%(action_farm_by_farmer)d"
+                               string="Farmer" type="action" icon="fa-user">
+                        </button>
+                        <button class="oe_stat_button" name="%(action_farm_by_crops)d"
+                               string="Crops" type="action" icon="fa-file">
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Active" bg_color="text-bg-info"
+                        invisible="not active" />
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-warning"
+                        invisible="active" />
+                   
+                        <group colspan="4">
+                            
+                            <group>
+                            <separator string='Farm Code' />
+
+                            <field name='code' help="select the code of farm." />
+
+                            <separator string='Basic Information' />
+
+                            <field name='farmer_id' placeholder="Farmer Name"
+                                help="The farmer's name." />
+                            <field name='farm_size' help="the size of farm in hectares." />
+                            <field name='is_organic' help="check if the farming is organic." />
+                            <field name='est_date' help="the date when the farm is established." />
+                            <field name='last_inspection'
+                                help="the date when the last inspection was held." />
+                            </group>
+                            <group>
+                            <field name='farm_type' help="select the type of farm." />
+                            <field name='active' invisible="1" />
+                            <field name='password' password="." />
+                            <field name='email' widget='email' /> 
+                            <field name='sequence' />
+                            <field name='priority' widget='priority' />
+                            <field name='harv_type' widget='radio' />
+                            </group>
+                        </group>
+
+                    <separator string='Additional Information' />
+                    <notebook>
+                        <page name="pq_description" string="Farm Description">
+                            <field name='description' placeholder="add the description"
+                                help="Give the small description about farm." />
+                        </page>
+                        <page name="pq_crop" string="Crop Production">
+                            <button name='unlink_o2m_rec' string='unlink(crops)' type ='object'/>
+                            <button name='link_o2m_rec' string='link(crops)' type ='object'/>
+
+                            <field name='crop_ids' />
+                            <group>
+                                <field name='govt_total' />
+                                <field name='mrkt_total' />
+                            </group>
+                        </page>
+                        <page name="pq_bool" string="Check Hierarchy">
+                            <group>
+                            <field name='is_hierarchy' />
+                            </group>
+                        </page>
+                        <page name="pq_hierarchy" string="Farm Hierarchy" invisible="not is_hierarchy">
+                            <group>
+                            <field name='parent_id' domain="[('id','!=',id),('code','like','%1')]"/>
+                                <separator string='Child Farm' />
+                                <field name="child_ids" />
+                            </group>
+                        </page>
+                        <page name="pq_machines" string="Machines">
+                            <field name='machine_ids' domain="[]"/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+
+
+            </form>
+        </field>
+    </record>
+
+    <record id="view_farm_tree" model="ir.ui.view">
+        <field name="name">view.farm.tree</field>
+        <field name="model">farm.model</field>
+        <field name="arch" type="xml">
+            <list>            
+                <field name='sequence' widget='handle' />
+                <field name='code'/>
+                <field name='farmer_id' required='1' />
+                <field name='farm_size' required='1' />
+                <field name='is_organic' />
+                <field name='est_date' required='1' />
+                <field name='last_inspection' />
+                <field name='farm_type' />
+            </list>
+        </field>
+    </record>
+
+    <record id="view_farm_search" model="ir.ui.view">
+        <field name="name">view.farm.search</field>
+        <field name="model">farm.model</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name='code' />
+                <field name='farmer_id' />
+                <field name='farm_size' />
+                <field name='is_organic' />                                          
+                <field name='est_date' />
+                <field name='last_inspection' />
+                <field name='farm_type' />
+                <filter name= "gro_org" string="Organic" domain="[]" context="{'group_by':'is_organic'}" />
+                <filter name= "grp_date" string="Establishment Date" domain="[]" context="{'group_by':'est_date'}" />
+                <filter name= "fil_date" date="est_date" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_farm" model="ir.actions.act_window">
+        <field name="name">Farm</field>
+        <field name="res_model">farm.model</field>
+        <field name="view_mode">list,form</field>
+        
+    </record>
+
+    <record id="action_farm_large" model="ir.actions.act_window">
+        <field name="name">Large Farm</field>
+        <field name="res_model">farm.model</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('farm_type','=','large')]</field>
+    </record>
+
+    <menuitem id="menu_farm_app" name='Farm Model' />
+    <menuitem id="menu_config" name="Machine Config" parent="menu_farm_app" sequence='20' />
+    <menuitem id="menu_farm_info" action="action_farm" parent="menu_farm_app" sequence='1' />
+    <menuitem id="menu_farm_info_large" action="action_farm_large" parent="menu_config" />
+
+</odoo>                                
